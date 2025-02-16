@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ce4ydmycoux7o"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_6twv0"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_6twv0"]
 [ext_resource type="Texture2D" uid="uid://cflvf46f6vjnj" path="res://icon.svg" id="1_a5yg6"]
-[ext_resource type="Script" path="res://Scenes/attack.gd" id="3_erv2y"]
+[ext_resource type="Script" path="res://scenes/attack.gd" id="3_erv2y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clcnc"]
 animations = [{

@@ -8,7 +8,6 @@ const JUMP_VELOCITY = -600.0
 var current_jumps = 0
 
 var is_dashing = false
-
 var is_attacking = false
 
 # Store the x direction the player was last looking
@@ -23,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Apply gravity
 		velocity += get_gravity() * delta
-	
+		
 	# Handle any movement directly controlled by player
 	actions()
 	
@@ -34,14 +33,11 @@ func actions():
 	# Handle any movement directly controlled by player
 	if is_dashing == false:
 		walk()
-	
 		jump()
 		
 	attack()
-	
 	dash()
 	
-
 func walk():
 	# Handle walking and player direction
 	var direction := Input.get_axis("walk_left", "walk_right")
