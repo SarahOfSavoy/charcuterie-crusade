@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce4ydmycoux7o"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_6twv0"]
+[ext_resource type="Texture2D" uid="uid://cflvf46f6vjnj" path="res://icon.svg" id="1_a5yg6"]
+[ext_resource type="Script" path="res://Scenes/attack.gd" id="3_erv2y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clcnc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5yg6")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5yg6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5yg6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5yg6")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5yg6")
+}],
+"loop": true,
+"name": &"spinning attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wm5j"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo6qp"]
+size = Vector2(54, 54)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6twv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_clcnc")
+animation = &"spinning attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7wm5j")
+
+[node name="DashDuration" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AttackDuration" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Attack" type="Area2D" parent="."]
+position = Vector2(40, 1)
+script = ExtResource("3_erv2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+modulate = Color(1, 0, 0, 0.494118)
+position = Vector2(4.76837e-07, -1)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("1_a5yg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_lo6qp")
+
+[connection signal="attack_started" from="." to="Attack" method="_on_player_attack_started"]
+[connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
+[connection signal="timeout" from="AttackDuration" to="Attack" method="_on_attack_duration_timeout"]
