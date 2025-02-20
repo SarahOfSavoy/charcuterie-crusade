@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxe37i8c5646h"]
+
+[ext_resource type="Texture2D" uid="uid://cflvf46f6vjnj" path="res://icon.svg" id="1_0m4tl"]
+[ext_resource type="Script" path="res://scenes/coin.gd" id="1_avk8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vuoo"]
+size = Vector2(129, 128)
+
+[node name="Coin" type="Area2D"]
+position = Vector2(147, 87)
+script = ExtResource("1_avk8k")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_0m4tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_7vuoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

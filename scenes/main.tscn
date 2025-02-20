@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=8 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
+[ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="2_iplbn"]
+[ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="3_qauw7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
@@ -14,6 +16,8 @@ distance = -151.0
 distance = -643.0
 
 [node name="Main" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("2_iplbn")]
 
 [node name="Player" parent="." instance=ExtResource("1_oaqdl")]
 position = Vector2(564, 582)
@@ -38,3 +42,12 @@ shape = SubResource("WorldBoundaryShape2D_bxcs1")
 [node name="Lower Wall" type="CollisionShape2D" parent="Game Boundary"]
 position = Vector2(565, 5)
 shape = SubResource("WorldBoundaryShape2D_18cyh")
+
+[node name="Coin" parent="." instance=ExtResource("3_qauw7")]
+position = Vector2(59, 610)
+
+[node name="Coin2" parent="." instance=ExtResource("3_qauw7")]
+position = Vector2(101, 609)
+
+[node name="Coin3" parent="." instance=ExtResource("3_qauw7")]
+position = Vector2(146, 610)
