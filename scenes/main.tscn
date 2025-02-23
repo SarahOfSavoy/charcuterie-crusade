@@ -1,25 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=11 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
 [ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="2_iplbn"]
 [ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="3_qauw7"]
+[ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_kxfht"]
+[ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="5_gu82n"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n8khw"]
-distance = -306.0
+distance = -1324.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bxcs1"]
-distance = -151.0
+distance = -639.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18cyh"]
 distance = -643.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm4aw"]
+size = Vector2(153, 2320)
 
 [node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("2_iplbn")]
 
 [node name="Player" parent="." instance=ExtResource("1_oaqdl")]
+z_index = 1
 position = Vector2(564, 582)
 
 [node name="Game Boundary" type="StaticBody2D" parent="."]
@@ -44,10 +50,74 @@ position = Vector2(565, 5)
 shape = SubResource("WorldBoundaryShape2D_18cyh")
 
 [node name="Coin" parent="." instance=ExtResource("3_qauw7")]
-position = Vector2(59, 610)
+position = Vector2(1879, 148)
 
 [node name="Coin2" parent="." instance=ExtResource("3_qauw7")]
-position = Vector2(101, 609)
+position = Vector2(1490, 458)
 
 [node name="Coin3" parent="." instance=ExtResource("3_qauw7")]
-position = Vector2(146, 610)
+position = Vector2(1149, 308)
+
+[node name="Platform" parent="." instance=ExtResource("4_kxfht")]
+position = Vector2(847, 527)
+
+[node name="Platform2" parent="." instance=ExtResource("4_kxfht")]
+position = Vector2(1157, 369)
+
+[node name="Platform3" parent="." instance=ExtResource("4_kxfht")]
+position = Vector2(1493, 520)
+
+[node name="Platform4" parent="." instance=ExtResource("4_kxfht")]
+position = Vector2(1868, 231)
+
+[node name="Scrolling Background" type="ParallaxBackground" parent="."]
+
+[node name="Background Layer" type="ParallaxLayer" parent="Scrolling Background"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+position = Vector2(-132, -141)
+scale = Vector2(3.43255, 3.50869)
+texture = ExtResource("5_gu82n")
+centered = false
+
+[node name="Temporary Wall" type="StaticBody2D" parent="."]
+position = Vector2(2, 34)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Temporary Wall"]
+offset_left = -153.0
+offset_top = -1.0
+offset_bottom = 768.0
+color = Color(0.28485, 0.28485, 0.28485, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temporary Wall"]
+position = Vector2(-76.5, 383.5)
+shape = SubResource("RectangleShape2D_sm4aw")
+
+[node name="Temporary Wall 2" type="StaticBody2D" parent="."]
+position = Vector2(2323, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Temporary Wall 2"]
+offset_left = -153.0
+offset_top = -1.0
+offset_bottom = 768.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temporary Wall 2"]
+position = Vector2(-76.5, 383.5)
+shape = SubResource("RectangleShape2D_sm4aw")
+
+[node name="Temporary Floor" type="StaticBody2D" parent="."]
+position = Vector2(769, 801)
+rotation = 1.5708
+
+[node name="ColorRect" type="ColorRect" parent="Temporary Floor"]
+offset_left = -153.0
+offset_top = -1551.0
+offset_bottom = 768.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temporary Floor"]
+position = Vector2(-76.4999, -392)
+shape = SubResource("RectangleShape2D_sm4aw")

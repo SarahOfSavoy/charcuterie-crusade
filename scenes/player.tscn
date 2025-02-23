@@ -84,6 +84,9 @@ texture = ExtResource("1_a5yg6")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_lo6qp")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -100)
+
 [connection signal="attack_started" from="." to="Attack" method="_on_player_attack_started"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
