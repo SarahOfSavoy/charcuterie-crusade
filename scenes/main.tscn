@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=12 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
 [ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="2_iplbn"]
 [ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="3_qauw7"]
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_kxfht"]
 [ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="5_gu82n"]
+[ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob.tscn" id="6_ih3pp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
@@ -121,3 +122,9 @@ color = Color(0.286275, 0.286275, 0.286275, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Temporary Floor"]
 position = Vector2(-76.4999, -392)
 shape = SubResource("RectangleShape2D_sm4aw")
+
+[node name="Mob" parent="." instance=ExtResource("6_ih3pp")]
+position = Vector2(65, -282)
+
+[node name="Mob2" parent="." instance=ExtResource("6_ih3pp")]
+position = Vector2(808, 8)

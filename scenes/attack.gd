@@ -14,10 +14,24 @@ func _on_attack_duration_timeout():
 	hide()
 	deactivate_attack_area()
 
-# TODO: get attack to damage enemies
+# Activate the attack area
 func activate_attack_area():
-	pass
+	# Enable the collision shape for the attack area
+	$CollisionShape2D.disabled = false
 
-# TODO: get attack to stop damaging enemies
+	# Connect the body_entered signal to handle mob damage
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
+# Deactivate the attack area
 func deactivate_attack_area():
-	pass
+	# Disable the collision shape for the attack area
+	$CollisionShape2D.disabled = true
+
+	# Disconnect the body_entered signal to stop handling mob damage
+	if is_connected("body_entered", Callable(self, "_on_body_entered")):
+		disconnect("body_entered", Callable(self, "_on_body_entered"))
+
+# Handle when a body enters the attack area
+func _on_body_entered(body):
+	if body.is_in_group("mobs"):  # Only damage the mob if it's in the "mobs" group
+		body.take_damage()
