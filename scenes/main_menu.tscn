@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl7golr87ljhx"]
+[gd_scene load_steps=4 format=3 uid="uid://bl7golr87ljhx"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_tegk4"]
+[ext_resource type="AudioStream" uid="uid://bk127qmbh5lqk" path="res://assets/audio/menu.wav" id="2_kvo5b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7j38v"]
 font_size = 45
@@ -55,6 +56,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Charcuterie Crusade"
 label_settings = SubResource("LabelSettings_7j38v")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kvo5b")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

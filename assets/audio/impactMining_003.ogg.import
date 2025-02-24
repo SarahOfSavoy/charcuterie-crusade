@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://xvv0ymntc80w"
-path="res://.godot/imported/impactMining_003.ogg-7ec68afb4a02b1d1ca2e744292c5bdb7.oggvorbisstr"
+path="res://.godot/imported/impactMining_003.ogg-60d0d81a69386b7ac2f7331ec132fc46.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/art/audio/impactMining_003.ogg"
-dest_files=["res://.godot/imported/impactMining_003.ogg-7ec68afb4a02b1d1ca2e744292c5bdb7.oggvorbisstr"]
+source_file="res://assets/audio/impactMining_003.ogg"
+dest_files=["res://.godot/imported/impactMining_003.ogg-60d0d81a69386b7ac2f7331ec132fc46.oggvorbisstr"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://4624vlodmy3t"
-path="res://.godot/imported/impactPunch_medium_001.ogg-3a9512387a4c9d9ad9ebc8e360bf8e75.oggvorbisstr"
+path="res://.godot/imported/impactPunch_medium_001.ogg-ced093c27f4e1931aa0dd4219585fcd4.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/art/audio/impactPunch_medium_001.ogg"
-dest_files=["res://.godot/imported/impactPunch_medium_001.ogg-3a9512387a4c9d9ad9ebc8e360bf8e75.oggvorbisstr"]
+source_file="res://assets/audio/impactPunch_medium_001.ogg"
+dest_files=["res://.godot/imported/impactPunch_medium_001.ogg-ced093c27f4e1931aa0dd4219585fcd4.oggvorbisstr"]
 
 [params]
 

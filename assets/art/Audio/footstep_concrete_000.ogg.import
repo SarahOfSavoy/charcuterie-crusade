@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dqfkth8hhldp3"
-path="res://.godot/imported/footstep_concrete_000.ogg-c81db5a06b7ad9cb91fac92850bb4a9f.oggvorbisstr"
+path="res://.godot/imported/footstep_concrete_000.ogg-07bbc09eaf088fd49b092f013bd095d9.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/art/kenney_impact-sounds/Audio/footstep_concrete_000.ogg"
-dest_files=["res://.godot/imported/footstep_concrete_000.ogg-c81db5a06b7ad9cb91fac92850bb4a9f.oggvorbisstr"]
+source_file="res://assets/art/Audio/footstep_concrete_000.ogg"
+dest_files=["res://.godot/imported/footstep_concrete_000.ogg-07bbc09eaf088fd49b092f013bd095d9.oggvorbisstr"]
 
 [params]
 
