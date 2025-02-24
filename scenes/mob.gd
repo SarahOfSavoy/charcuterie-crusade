@@ -20,7 +20,7 @@ func _ready():
 	elif detection_shape is RectangleShape2D:
 		attack_range = detection_shape.size.x / 2  # Use half the width as the range
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if health <= 0:
 		die()  # Handle mob death
 		return
