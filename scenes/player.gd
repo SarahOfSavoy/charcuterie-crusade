@@ -4,13 +4,21 @@ const SPEED = 400.0
 const DASHSPEED = 1500.0
 const JUMP_VELOCITY = -600.0
 
-# Counter to allow double jumps but not more than that
+var health = 100
+@export var max_jumps = 1
+@export var can_attack = false
+@export var can_dash = false
+
 var current_jumps = 0
+var current_dashes = 0
 
 var is_dashing = false
 var is_attacking = false
 var is_airborne = false
 var is_walking = false
+
+var dash_cooldown = false
+var attack_cooldown = false
 
 # Store the x direction the player was last looking
 var last_direction = 1
@@ -20,8 +28,11 @@ signal attack_started
 func _physics_process(delta: float) -> void:
 	# Update values not directly related to player input
 	if is_on_floor():
-		current_jumps = 0
 		is_airborne = false
+		current_jumps = 0
+		if dash_cooldown == false:
+			current_dashes = 0
+		 
 	else:
 		# Apply gravity
 		velocity += get_gravity() * delta
@@ -39,9 +50,11 @@ func actions():
 	if is_dashing == false:
 		walk()
 		jump()
-		
-	attack()
-	dash()
+	
+	if can_attack:
+		attack()
+	if can_dash:
+		dash()
 	
 func walk():
 	# Handle walking and player direction
@@ -51,22 +64,30 @@ func walk():
 		is_walking = true
 		last_direction = direction
 		flip(direction)
+		if($SFX/Walking.playing == false and is_airborne == false):
+			$SFX/Walking.play()
 	else:
 		is_walking = false
+		$SFX/Walking.stop()
 	# Move player left or right
 	velocity.x = direction * SPEED
 		
 func jump():
 	# Launches the player vertically, can jump one additional time while while midair
-	if Input.is_action_just_pressed("jump") and current_jumps < 2:
+	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
+		$SFX/Jumping.play()
 		velocity.y = JUMP_VELOCITY
 		current_jumps += 1
 		
 func dash():
 	# Handle turning dash input into movement
-	if Input.is_action_just_pressed("dash") and is_dashing == false:
+	if Input.is_action_just_pressed("dash") and is_dashing == false and current_dashes == 0:
+		$SFX/Dashing.play()
 		is_dashing = true
+		dash_cooldown = true
+		current_dashes += 1
 		$"DashDuration".start()
+		$"DashCooldown".start()
 		
 	if is_dashing == true:
 		velocity.x = last_direction * DASHSPEED
@@ -74,9 +95,12 @@ func dash():
 	
 func attack():
 	# Handle turning attack input into movement
-	if Input.is_action_just_pressed("attack") and is_attacking == false:
+	if Input.is_action_just_pressed("attack") and is_attacking == false and attack_cooldown == false:
+		$SFX/Attacking.play()
 		is_attacking = true
+		attack_cooldown = true
 		$"AttackDuration".start()
+		$"AttackCooldown".start()
 		attack_started.emit()
 		
 func flip(direction):
@@ -104,3 +128,12 @@ func _on_dash_duration_timeout():
 
 func _on_attack_duration_timeout():
 	is_attacking = false
+
+func _on_dash_cooldown_timeout():
+	dash_cooldown = false
+
+func _on_attack_cooldown_timeout():
+	attack_cooldown = false
+
+func _on_knife_knife_collected() -> void:
+	can_attack = true

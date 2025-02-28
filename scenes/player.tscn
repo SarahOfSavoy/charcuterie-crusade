@@ -1,14 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://ce4ydmycoux7o"]
+[gd_scene load_steps=26 format=3 uid="uid://ce4ydmycoux7o"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6twv0"]
+[ext_resource type="Texture2D" uid="uid://bi1afbccg6kbo" path="res://assets/art/player sprites/idle_polished/1.png" id="3_8jobv"]
 [ext_resource type="Script" path="res://scenes/attack.gd" id="3_erv2y"]
-[ext_resource type="Texture2D" uid="uid://34kuhk5fbn73" path="res://assets/art/player sprites/idle/1.png" id="3_gfv1o"]
+[ext_resource type="Texture2D" uid="uid://dkqvhdlndpcxd" path="res://assets/art/player sprites/idle_polished/2.png" id="4_1brrq"]
 [ext_resource type="Texture2D" uid="uid://dfqr8gsnlxdwr" path="res://assets/art/knife_01.png" id="4_e380e"]
-[ext_resource type="Texture2D" uid="uid://bgewy5vqibp4e" path="res://assets/art/player sprites/idle/2.png" id="4_ks8k5"]
-[ext_resource type="Texture2D" uid="uid://dc3w4e0t3i4ug" path="res://assets/art/player sprites/idle/3.png" id="5_pv54q"]
-[ext_resource type="Texture2D" uid="uid://di3kl32dgk1ss" path="res://assets/art/player sprites/idle/4.png" id="6_0cvxg"]
-[ext_resource type="Texture2D" uid="uid://cj011l3bguxgm" path="res://assets/art/player sprites/idle/5.png" id="7_2bamw"]
-[ext_resource type="Texture2D" uid="uid://c0u2m6dmg0jv" path="res://assets/art/player sprites/idle/6.png" id="8_2wxow"]
+[ext_resource type="Texture2D" uid="uid://bxa5l5366exgp" path="res://assets/art/player sprites/idle_polished/3.png" id="5_qpewj"]
+[ext_resource type="Texture2D" uid="uid://cythxat46pv3s" path="res://assets/art/player sprites/idle_polished/4.png" id="6_8lsl4"]
+[ext_resource type="Texture2D" uid="uid://b8skui5mqqf74" path="res://assets/art/player sprites/idle_polished/5.png" id="7_jlw88"]
+[ext_resource type="Texture2D" uid="uid://pdyr3jbcvu8w" path="res://assets/art/player sprites/idle_polished/6.png" id="8_0nxc5"]
 [ext_resource type="Texture2D" uid="uid://b53qru1tu7gm2" path="res://assets/art/player sprites/walk/1.png" id="9_r0fjf"]
 [ext_resource type="Texture2D" uid="uid://ddg10i0xqd1cw" path="res://assets/art/player sprites/walk/2.png" id="10_ctqj4"]
 [ext_resource type="Texture2D" uid="uid://y7a5we8khpta" path="res://assets/art/player sprites/walk/3.png" id="11_i0lmd"]
@@ -17,12 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://ddgtnxkferobq" path="res://assets/art/player sprites/walk/6.png" id="14_0to1s"]
 [ext_resource type="Texture2D" uid="uid://b84y7dx55207" path="res://assets/art/player sprites/walk/7.png" id="15_t7fes"]
 [ext_resource type="Texture2D" uid="uid://f3c6vub1m88y" path="res://assets/art/player sprites/walk/8.png" id="16_ldp2a"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="17_7oj02"]
+[ext_resource type="AudioStream" uid="uid://32c73p6rbxn8" path="res://assets/audio/footstep_wood_000.ogg" id="18_krxnr"]
+[ext_resource type="AudioStream" uid="uid://bgmuajwwivkc" path="res://assets/audio/impactGeneric_light_001.ogg" id="19_xcb4b"]
+[ext_resource type="AudioStream" uid="uid://dgac7e41dijaq" path="res://assets/audio/impactSoft_heavy_001.ogg" id="21_hl6jg"]
+[ext_resource type="AudioStream" uid="uid://d0upki34qcams" path="res://assets/audio/impactPlank_medium_000.ogg" id="21_jdjnl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clcnc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gfv1o")
+"texture": ExtResource("7_jlw88")
 }],
 "loop": true,
 "name": &"attack",
@@ -30,7 +35,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gfv1o")
+"texture": ExtResource("4_1brrq")
 }],
 "loop": true,
 "name": &"dash",
@@ -38,22 +43,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gfv1o")
+"texture": ExtResource("3_8jobv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ks8k5")
+"texture": ExtResource("4_1brrq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_pv54q")
+"texture": ExtResource("5_qpewj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_0cvxg")
+"texture": ExtResource("6_8lsl4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_2bamw")
+"texture": ExtResource("7_jlw88")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_2wxow")
+"texture": ExtResource("8_0nxc5")
 }],
 "loop": true,
 "name": &"idle",
@@ -61,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gfv1o")
+"texture": ExtResource("3_8jobv")
 }],
 "loop": true,
 "name": &"jump",
@@ -94,7 +99,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wm5j"]
@@ -110,7 +115,8 @@ script = ExtResource("1_6twv0")
 position = Vector2(4.29153e-06, -9.53674e-07)
 scale = Vector2(0.192, 0.176)
 sprite_frames = SubResource("SpriteFrames_clcnc")
-animation = &"jump"
+animation = &"attack"
+script = ExtResource("17_7oj02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7wm5j")
@@ -119,7 +125,12 @@ shape = SubResource("RectangleShape2D_7wm5j")
 wait_time = 0.1
 
 [node name="AttackDuration" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
+
+[node name="DashCooldown" type="Timer" parent="."]
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -100)
@@ -140,8 +151,26 @@ texture = ExtResource("4_e380e")
 position = Vector2(18.5, -1)
 shape = SubResource("RectangleShape2D_lo6qp")
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("18_krxnr")
+volume_db = 10.0
+
+[node name="Jumping" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("19_xcb4b")
+
+[node name="Dashing" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("21_hl6jg")
+volume_db = 12.0
+
+[node name="Attacking" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("21_jdjnl")
+
 [connection signal="attack_started" from="." to="RotationCenter/Attack" method="_on_player_attack_started"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
 [connection signal="timeout" from="AttackDuration" to="RotationCenter/Attack" method="_on_attack_duration_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="RotationCenter/Attack" to="RotationCenter/Attack" method="_on_body_entered"]

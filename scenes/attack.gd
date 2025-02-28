@@ -46,7 +46,7 @@ func deactivate_attack_area():
 		disconnect("body_entered", Callable(self, "_on_body_entered"))
 		
 func rotate_attack_area():
-	get_node("/root/Main/Player/RotationCenter").rotation += 0.3
+	get_node("/root/Main/Player/RotationCenter").rotation += 0.15
 
 # Handle when a body enters the attack area
 func _on_body_entered(body):
