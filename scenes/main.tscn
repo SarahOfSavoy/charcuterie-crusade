@@ -61,16 +61,16 @@ position = Vector2(1490, 458)
 position = Vector2(1149, 308)
 
 [node name="Platform" parent="." instance=ExtResource("4_kxfht")]
-position = Vector2(847, 527)
+position = Vector2(847, 537)
 
 [node name="Platform2" parent="." instance=ExtResource("4_kxfht")]
-position = Vector2(1157, 369)
+position = Vector2(1157, 419)
 
 [node name="Platform3" parent="." instance=ExtResource("4_kxfht")]
-position = Vector2(1493, 520)
+position = Vector2(1493, 537)
 
 [node name="Platform4" parent="." instance=ExtResource("4_kxfht")]
-position = Vector2(1868, 231)
+position = Vector2(1808, 291)
 
 [node name="Scrolling Background" type="ParallaxBackground" parent="."]
 
@@ -125,7 +125,7 @@ position = Vector2(-76.4999, -392)
 shape = SubResource("RectangleShape2D_sm4aw")
 
 [node name="Mob" parent="." instance=ExtResource("6_ih3pp")]
-position = Vector2(65, -282)
+position = Vector2(79, -230)
 
 [node name="Mob2" parent="." instance=ExtResource("6_ih3pp")]
 position = Vector2(808, 8)

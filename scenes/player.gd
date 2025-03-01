@@ -135,5 +135,5 @@ func _on_dash_cooldown_timeout():
 func _on_attack_cooldown_timeout():
 	attack_cooldown = false
 
-func _on_knife_knife_collected() -> void:
+func _on_knife_collected() -> void:
 	can_attack = true

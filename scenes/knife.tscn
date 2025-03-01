@@ -7,7 +7,7 @@
 radius = 4.94975
 height = 36.7696
 
-[node name="Knife" type="Area2D"]
+[node name="Knife" type="Area2D" groups=["knife"]]
 script = ExtResource("1_twoyl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

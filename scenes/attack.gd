@@ -1,6 +1,7 @@
 extends Area2D
 
 var is_attacking = false
+@onready var rotation_center: Node2D = get_parent()
 
 # Attack should be off by default
 func _ready():
@@ -11,7 +12,7 @@ func _physics_process(_delta: float) -> void:
 	if(is_attacking):
 		rotate_attack_area()
 	else:
-		get_node("/root/Main/Player/RotationCenter").rotation = -1
+		rotation_center.rotation = -1
 
 # Attack area should be activated while player is attacking
 func _on_player_attack_started():
@@ -46,7 +47,7 @@ func deactivate_attack_area():
 		disconnect("body_entered", Callable(self, "_on_body_entered"))
 		
 func rotate_attack_area():
-	get_node("/root/Main/Player/RotationCenter").rotation += 0.15
+	rotation_center.rotation += 0.15
 
 # Handle when a body enters the attack area
 func _on_body_entered(body):

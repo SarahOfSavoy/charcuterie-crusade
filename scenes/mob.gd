@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 @export var patrol_distance: float = 100.0
 @export var max_health: int = 3  # Mob dies after 3 hits
+@export var should_patrol: bool = true  # Controls whether mob should patrol
+
 
 var direction: int = 1  # 1 for right, -1 for left
 var start_position: Vector2
@@ -27,7 +29,7 @@ func _physics_process(_delta):
 
 	if player_in_range and not is_attacking:
 		stop_and_attack()
-	else:
+	elif should_patrol:  # Only patrol if should_patrol is true
 		patrol()
 
 func patrol():
