@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdsfohr2b5k1v"]
+[gd_scene load_steps=7 format=3 uid="uid://bdsfohr2b5k1v"]
 
 [ext_resource type="Script" path="res://scenes/mob.gd" id="1_n0x2y"]
 [ext_resource type="Texture2D" uid="uid://vqs8c06csvkc" path="res://assets/art/box.png" id="2_04oka"]
+[ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_yyuv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
 size = Vector2(100, 103)
@@ -35,6 +36,11 @@ debug_color = Color(0.996319, 0, 0.189017, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(1078, 549.75)
 shape = SubResource("RectangleShape2D_mljh6")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_yyuv4")]
+position = Vector2(1042, 433)
+scale = Vector2(0.75, 0.75)
+totalHealth = 3
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

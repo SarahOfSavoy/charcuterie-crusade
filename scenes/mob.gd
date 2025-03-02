@@ -62,8 +62,12 @@ func take_damage():
 	health -= 1
 	if health <= 0:
 		die()
+	
+	$HealthBar.take_damage(1)
 
 func die():
+	Globals.score += 200
+	
 	queue_free()  # Remove the mob from the scene
 
 func _on_detection_area_body_entered(body):

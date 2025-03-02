@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfd7s4tykxpfj"]
+[gd_scene load_steps=5 format=3 uid="uid://bfd7s4tykxpfj"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_porsv"]
+[ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="2_miow5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a1uum"]
 font_size = 25
@@ -29,6 +30,11 @@ offset_left = 26.0
 offset_top = 26.0
 offset_right = 138.0
 offset_bottom = 75.0
-text = "Health
+text = "Health:
 "
 label_settings = SubResource("LabelSettings_b0q0l")
+
+[node name="HealthBar" parent="Health" instance=ExtResource("2_miow5")]
+position = Vector2(95, 7)
+scale = Vector2(2, 1)
+totalHealth = 500
