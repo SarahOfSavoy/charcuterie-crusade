@@ -26,6 +26,10 @@ var last_direction = 1
 signal attack_started
 
 func _physics_process(delta: float) -> void:
+	# Ignore any input if the player is paused
+	if Globals.is_paused:
+		return
+	
 	# Update values not directly related to player input
 	if is_on_floor():
 		is_airborne = false

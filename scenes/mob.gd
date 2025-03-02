@@ -60,12 +60,10 @@ func attack():
 
 func take_damage():
 	health -= 1
-	if health <= 0:
-		die()
-	
 	$HealthBar.take_damage(1)
 
 func die():
+	# Add 200 points to the score
 	Globals.score += 200
 	
 	queue_free()  # Remove the mob from the scene
