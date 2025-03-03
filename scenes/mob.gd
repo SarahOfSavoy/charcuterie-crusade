@@ -53,7 +53,7 @@ func start_attack():
 	attack()
 
 func attack():
-	var player = get_node("/root/Main/Player")  # Updated path to reflect "Main" node
+	var player = get_parent().get_node("Player")  # Updated path to reflect "Main" node
 	if player and position.distance_to(player.position) <= attack_range:
 		print("Mob attacks!")
 		# Implement attack logic here (e.g., damage the player)

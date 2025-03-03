@@ -219,7 +219,7 @@ offset_right = 381.0
 offset_bottom = 455.0
 text = "Welcome to Charcuterie Crusade!
 
-Use A and S to move left and right.
+Use A and D or left/right arrow keys to move left and right.
 Use Space to Jump."
 
 [node name="Label2" type="Label" parent="."]
