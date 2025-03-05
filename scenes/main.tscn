@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=14 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
 [ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="2_iplbn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="5_gu82n"]
 [ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob.tscn" id="6_ih3pp"]
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="7_luhsu"]
+[ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="8_6trxg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
@@ -128,9 +129,13 @@ shape = SubResource("RectangleShape2D_sm4aw")
 position = Vector2(79, -230)
 
 [node name="Mob2" parent="." instance=ExtResource("6_ih3pp")]
-position = Vector2(808, 8)
+position = Vector2(694, 5)
 
 [node name="Knife" parent="." instance=ExtResource("7_luhsu")]
 position = Vector2(922, 499)
+
+[node name="Spikes" parent="." instance=ExtResource("8_6trxg")]
+position = Vector2(2049, 512)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_knife_collected"]

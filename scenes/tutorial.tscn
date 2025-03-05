@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=14 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
 [ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="1_tqxjq"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="6_p1vca"]
 [ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob.tscn" id="7_ld5pt"]
 [ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="9_2bfno"]
-[ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="10_474p8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1b6ck"]
 
@@ -273,18 +272,6 @@ position = Vector2(2610, -14)
 should_patrol = false
 
 [node name="HUD" parent="." instance=ExtResource("9_2bfno")]
-
-[node name="Spikes1" parent="." instance=ExtResource("10_474p8")]
-position = Vector2(1807, 467)
-scale = Vector2(0.5, 0.5)
-
-[node name="Spikes2" parent="." instance=ExtResource("10_474p8")]
-position = Vector2(2021, 467)
-scale = Vector2(0.5, 0.5)
-
-[node name="Spikes3" parent="." instance=ExtResource("10_474p8")]
-position = Vector2(2232, 467)
-scale = Vector2(0.5, 0.5)
 
 [node name="LevelEndArea" type="Area2D" parent="."]
 position = Vector2(3843, 534)
