@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player # Can check if a node is a Player
 
 const SPEED = 400.0
 const DASHSPEED = 1500.0
@@ -29,6 +30,12 @@ func _physics_process(delta: float) -> void:
 	# Ignore any input if the player is paused
 	if Globals.is_paused:
 		return
+	
+	# Check if the player is dead
+	if health <= 0:
+		Globals.is_paused = true
+		var level_end = load("res://scenes/level_end.tscn").instantiate()
+		$Camera2D.add_child(level_end)
 	
 	# Update values not directly related to player input
 	if is_on_floor():
@@ -141,3 +148,10 @@ func _on_attack_cooldown_timeout():
 
 func _on_knife_collected() -> void:
 	can_attack = true
+
+# Function called elsewhere to deal damage to the player
+func take_damage(damage):
+	# Update the player health
+	health -= damage
+	# Update the health bar
+	get_parent().get_node("HUD/Health/HealthBar").take_damage(damage)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfioui5vphlyh"]
+
+[ext_resource type="Texture2D" uid="uid://cr603nf66mxmf" path="res://assets/art/fork_pit.png" id="1_im504"]
+[ext_resource type="Script" path="res://scenes/spikes.gd" id="1_imwca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12et6"]
+size = Vector2(434, 236)
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_imwca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_im504")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 134)
+shape = SubResource("RectangleShape2D_12et6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

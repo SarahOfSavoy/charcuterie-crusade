@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 func _on_level_end_area_body_entered(body: Node2D) -> void:
 	Globals.is_paused = true
 	var level_end = load("res://scenes/level_end.tscn").instantiate()
-	$Player/Camera2D.add_child(level_end)	
+	$Player/Camera2D.add_child(level_end)
