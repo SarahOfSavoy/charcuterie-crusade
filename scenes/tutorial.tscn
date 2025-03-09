@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=15 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
 [ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="1_tqxjq"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_eawga"]
 [ext_resource type="AudioStream" uid="uid://bbckf75nldgjs" path="res://assets/audio/tut.wav" id="5_6jdfx"]
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="6_p1vca"]
-[ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob.tscn" id="7_ld5pt"]
-[ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="9_2bfno"]
+[ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob_base.tscn" id="7_ld5pt"]
+[ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="9_58oon"]
+[ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="10_3eunj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1b6ck"]
 
@@ -220,12 +221,14 @@ offset_bottom = 455.0
 text = "Welcome to Charcuterie Crusade!
 
 Use A and D or left/right arrow keys to move left and right.
-Use Space to Jump."
+Use Space to Jump.
+
+Collect butter for score!"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 1477.0
 offset_top = 210.0
-offset_right = 1744.0
+offset_right = 1768.0
 offset_bottom = 311.0
 text = "Platform!"
 
@@ -261,7 +264,7 @@ max_distance = 1e+08
 panning_strength = 0.0
 
 [node name="Knife" parent="." instance=ExtResource("6_p1vca")]
-position = Vector2(2576, 344)
+position = Vector2(210, 594)
 
 [node name="Mob1" parent="." instance=ExtResource("7_ld5pt")]
 position = Vector2(2275, -14)
@@ -271,14 +274,47 @@ should_patrol = false
 position = Vector2(2610, -14)
 should_patrol = false
 
-[node name="HUD" parent="." instance=ExtResource("9_2bfno")]
-
 [node name="LevelEndArea" type="Area2D" parent="."]
 position = Vector2(3843, 534)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
 scale = Vector2(1.85302, 7.8712)
 shape = SubResource("RectangleShape2D_wavc8")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(943, 596)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1062, 597)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1183, 494)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1268, 495)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1392, 403)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1554, 337)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(1863, 346)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(2146, 347)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(2828, 405)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("9_58oon")]
+position = Vector2(2992, 504)
+
+[node name="Mob" parent="." instance=ExtResource("10_3eunj")]
+position = Vector2(-448, -13)
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_collected"]
 [connection signal="body_entered" from="LevelEndArea" to="." method="_on_level_end_area_body_entered"]

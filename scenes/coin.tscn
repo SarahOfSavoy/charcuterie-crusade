@@ -1,22 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxe37i8c5646h"]
 
-[ext_resource type="Texture2D" uid="uid://cflvf46f6vjnj" path="res://icon.svg" id="1_0m4tl"]
 [ext_resource type="Script" path="res://scenes/coin.gd" id="1_avk8k"]
+[ext_resource type="Texture2D" uid="uid://c2erou45eyna2" path="res://assets/art/foods.png" id="2_5ufu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vuoo"]
-size = Vector2(129, 128)
+size = Vector2(81.9042, 91.3657)
 
 [node name="Coin" type="Area2D"]
-position = Vector2(147, 87)
+position = Vector2(143, 88)
 script = ExtResource("1_avk8k")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_0m4tl")
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("2_5ufu2")
+region_enabled = true
+region_rect = Rect2(35, 62, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+rotation = -0.445059
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_7vuoo")
 

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbgfh4dqtoeve"]
+
+[ext_resource type="Script" path="res://scenes/mob.gd" id="1_646gh"]
+[ext_resource type="Texture2D" uid="uid://dgmrpnjtwiqbl" path="res://assets/art/FOOD NL.png" id="2_80my3"]
+[ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_00p5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
+size = Vector2(100, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1cj7"]
+size = Vector2(46.5, 36.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mljh6"]
+size = Vector2(193, 175.5)
+
+[node name="Mob" type="CharacterBody2D" groups=["mobs"]]
+position = Vector2(-145, 10)
+script = ExtResource("1_646gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1085, 570)
+scale = Vector2(6, 6)
+texture = ExtResource("2_80my3")
+region_enabled = true
+region_rect = Rect2(41.5, 67.25, 24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1077, 584.5)
+shape = SubResource("RectangleShape2D_5uqgo")
+
+[node name="MobAttack" type="Area2D" parent="."]
+position = Vector2(1027, 588)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobAttack"]
+position = Vector2(-22.75, 0)
+shape = SubResource("RectangleShape2D_q1cj7")
+debug_color = Color(0.996319, 0, 0.189017, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(1076, 585)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(1, -37)
+shape = SubResource("RectangleShape2D_mljh6")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_00p5l")]
+position = Vector2(1042, 433)
+scale = Vector2(0.75, 0.75)
+totalHealth = 3
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

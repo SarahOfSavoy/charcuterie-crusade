@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
-[ext_resource type="PackedScene" uid="uid://bfd7s4tykxpfj" path="res://scenes/hud.tscn" id="2_iplbn"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_iplbn"]
 [ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="3_qauw7"]
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_kxfht"]
 [ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="5_gu82n"]
-[ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob.tscn" id="6_ih3pp"]
+[ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob_base.tscn" id="6_ih3pp"]
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="7_luhsu"]
 [ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="8_6trxg"]
 
