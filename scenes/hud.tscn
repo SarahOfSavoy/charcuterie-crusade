@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfd7s4tykxpfj"]
+[gd_scene load_steps=5 format=3 uid="uid://t3e5afoao01o"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_porsv"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="2_miow5"]

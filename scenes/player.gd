@@ -151,7 +151,6 @@ func _on_knife_collected() -> void:
 
 # Function called elsewhere to deal damage to the player
 func take_damage(damage):
-	print('player took damage')
 	# Update the player health
 	health -= damage
 	# Update the health bar

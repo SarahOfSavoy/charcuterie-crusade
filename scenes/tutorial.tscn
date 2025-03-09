@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="6_p1vca"]
 [ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob_base.tscn" id="7_ld5pt"]
 [ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="9_58oon"]
-[ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="10_3eunj"]
+[ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="11_5tcyc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1b6ck"]
 
@@ -264,7 +264,7 @@ max_distance = 1e+08
 panning_strength = 0.0
 
 [node name="Knife" parent="." instance=ExtResource("6_p1vca")]
-position = Vector2(210, 594)
+position = Vector2(2575, 339)
 
 [node name="Mob1" parent="." instance=ExtResource("7_ld5pt")]
 position = Vector2(2275, -14)
@@ -313,8 +313,7 @@ position = Vector2(2828, 405)
 [node name="Coin10" parent="Coins" instance=ExtResource("9_58oon")]
 position = Vector2(2992, 504)
 
-[node name="Mob" parent="." instance=ExtResource("10_3eunj")]
-position = Vector2(-448, -13)
+[node name="HUD" parent="." instance=ExtResource("11_5tcyc")]
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_collected"]
 [connection signal="body_entered" from="LevelEndArea" to="." method="_on_level_end_area_body_entered"]

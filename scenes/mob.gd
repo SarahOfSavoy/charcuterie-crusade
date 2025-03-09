@@ -85,7 +85,7 @@ func start_attack():
 
 func attack():
 	if player and $MobAttack.overlaps_body(player):  # Check if player is in the attack area
-		player.take_damage(1)  # Signal the player's take_damage() function
+		player.take_damage(15)  # Signal the player's take_damage() function
 
 func take_damage():
 	health -= 1
