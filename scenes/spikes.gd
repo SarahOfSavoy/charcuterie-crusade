@@ -5,4 +5,4 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	# Chack that the body is the player and deal full damage
 	if body is Player:
-		body.take_damage(100)
+		body.take_damage(50)

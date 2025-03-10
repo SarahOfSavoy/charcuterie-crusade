@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
-[ext_resource type="Texture2D" uid="uid://dux4vvofwuc6f" path="res://assets/art/temp_background.jpg" id="1_tqxjq"]
+[ext_resource type="Texture2D" uid="uid://djx34ypyneam0" path="res://assets/art/backgrounds/bg1.png" id="2_k1l4k"]
 [ext_resource type="Texture2D" uid="uid://cwn4ltdv8h0kw" path="res://assets/art/Tileset_8.png" id="2_ngfgb"]
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_jdcym"]
 [ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="4_76re5"]
@@ -211,9 +211,9 @@ script = ExtResource("1_qaf8i")
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
-position = Vector2(-29.0001, -263)
-scale = Vector2(8.34904, 4.09266)
-texture = ExtResource("1_tqxjq")
+position = Vector2(-19, -811)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_k1l4k")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("3_jdcym")]
