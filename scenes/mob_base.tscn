@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_yyuv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
-size = Vector2(100, 103)
+size = Vector2(104, 104)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_eartb"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lelyy"]
+radius = 13.0384
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mljh6"]
-size = Vector2(193, 175.5)
+size = Vector2(191, 105.5)
 
 [node name="Mob" type="CharacterBody2D" groups=["mobs"]]
 position = Vector2(-145, 10)
@@ -24,19 +25,20 @@ region_enabled = true
 region_rect = Rect2(13.5, 67.25, 24, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1077, 584.5)
+position = Vector2(1081, 584)
 shape = SubResource("RectangleShape2D_5uqgo")
 
 [node name="MobAttack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobAttack"]
-shape = SubResource("SegmentShape2D_eartb")
+position = Vector2(1083, 580)
+shape = SubResource("CircleShape2D_lelyy")
 debug_color = Color(0.996319, 0, 0.189017, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(1078, 549.75)
+position = Vector2(1081.5, 584.75)
 shape = SubResource("RectangleShape2D_mljh6")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_yyuv4")]

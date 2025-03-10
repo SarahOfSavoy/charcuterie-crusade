@@ -149,6 +149,9 @@ func _on_attack_cooldown_timeout():
 func _on_knife_collected() -> void:
 	can_attack = true
 
+func _on_pepper_collected() -> void:
+	max_jumps += 1
+	
 # Function called elsewhere to deal damage to the player
 func take_damage(damage):
 	# Update the player health

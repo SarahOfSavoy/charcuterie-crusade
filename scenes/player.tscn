@@ -134,6 +134,9 @@ wait_time = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -100)
+limit_left = -40
+limit_right = 3900
+limit_bottom = 760
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -157,7 +160,7 @@ shape = SubResource("RectangleShape2D_lo6qp")
 
 [node name="Walking" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("18_krxnr")
-volume_db = 10.0
+volume_db = 4.0
 
 [node name="Jumping" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("19_xcb4b")
