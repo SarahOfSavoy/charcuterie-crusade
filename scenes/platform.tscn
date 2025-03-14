@@ -1,16 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dppvfi2lx7a2l"]
 
+[ext_resource type="Script" path="res://scenes/platform.gd" id="1_j1da7"]
 [ext_resource type="Texture2D" uid="uid://yryv0f2m4ewj" path="res://assets/art/platform.png" id="2_icrjs"]
-
-[sub_resource type="GDScript" id="GDScript_slyf1"]
-script/source = "extends StaticBody2D
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33yrj"]
 size = Vector2(240, 19)
 
 [node name="Platform" type="StaticBody2D"]
-script = SubResource("GDScript_slyf1")
+script = ExtResource("1_j1da7")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
