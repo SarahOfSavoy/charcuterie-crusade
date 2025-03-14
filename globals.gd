@@ -12,3 +12,6 @@ var max_health = 100
 
 # Player health
 var health = max_health
+
+# Last checkpoint
+var checkpoint = null

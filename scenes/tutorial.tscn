@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=19 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
 [ext_resource type="Texture2D" uid="uid://djx34ypyneam0" path="res://assets/art/backgrounds/bg1.png" id="2_k1l4k"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dxe37i8c5646h" path="res://scenes/coin.tscn" id="9_58oon"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="11_5tcyc"]
 [ext_resource type="PackedScene" uid="uid://b75jkowkfchko" path="res://scenes/pepper.tscn" id="13_q3fh6"]
+[ext_resource type="PackedScene" uid="uid://vkkrlr28qhor" path="res://scenes/checkpoint.tscn" id="14_ysho7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1b6ck"]
 
@@ -545,6 +546,12 @@ stream = ExtResource("5_6jdfx")
 volume_db = -8.0
 max_distance = 1e+08
 panning_strength = 0.0
+
+[node name="Tutorial Checkpoint" parent="." instance=ExtResource("14_ysho7")]
+position = Vector2(278, 573)
+
+[node name="Level 1 Checkpoint" parent="." instance=ExtResource("14_ysho7")]
+position = Vector2(3154, -400)
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_collected"]
 [connection signal="pepper_collected" from="Pepper" to="Player" method="_on_pepper_collected"]

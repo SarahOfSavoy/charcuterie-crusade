@@ -8,9 +8,12 @@ func _ready() -> void:
 
 # When the restart button is pressed
 func _on_restart_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 	Globals.is_paused = false
-	Globals.score = 0
+	Globals.score = Globals.checkpoint.score
+	var player = get_parent().get_parent()
+	player.position = Globals.checkpoint.position
+	player.take_damage(-100)
+	queue_free()
 
 
 # When the continue button is pressed
