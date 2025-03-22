@@ -32,9 +32,9 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_3fudy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, -5, 0, 0, 0, 0, 675, -5)
+"points": PackedVector2Array(-103.266, -41.5311, 103.266, 41.5311, -2, -5, -70.7151, -10.1022, 70.7151, 10.1022, 163, -124, -89.797, -12.3471, 89.797, 12.3471, 306, 92, -94.2868, -5.61231, 94.2868, 5.61231, 621, -136, -95.4093, 48.2659, 95.4093, -48.2659, 811, 133)
 }
-point_count = 2
+point_count = 5
 
 [node name="Main" type="Node2D"]
 
@@ -161,5 +161,6 @@ curve = SubResource("Curve2D_8q7ke")
 [node name="Moving Platform2" parent="." instance=ExtResource("9_062py")]
 position = Vector2(510, 2)
 curve = SubResource("Curve2D_3fudy")
+speed = 0.5
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_knife_collected"]

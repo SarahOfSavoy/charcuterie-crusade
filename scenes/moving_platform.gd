@@ -1,6 +1,6 @@
 extends Path2D
 
-@export var speed = 1
+@export var speed : float = 1
 
 func _ready() -> void:
 	$AnimationPlayer.play("move")
