@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=17 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="2_iplbn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdsfohr2b5k1v" path="res://scenes/mob_base.tscn" id="6_ih3pp"]
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="7_luhsu"]
 [ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="8_6trxg"]
+[ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="9_062py"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
@@ -23,6 +24,18 @@ distance = -643.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm4aw"]
 size = Vector2(153, 2320)
 
+[sub_resource type="Curve2D" id="Curve2D_8q7ke"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 4, 0, 0, 0, 0, 2, -591)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_3fudy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, -5, 0, 0, 0, 0, 675, -5)
+}
+point_count = 2
+
 [node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("2_iplbn")]
@@ -30,6 +43,9 @@ size = Vector2(153, 2320)
 [node name="Player" parent="." instance=ExtResource("1_oaqdl")]
 z_index = 1
 position = Vector2(564, 582)
+max_jumps = 2
+can_attack = true
+can_dash = true
 
 [node name="Game Boundary" type="StaticBody2D" parent="."]
 
@@ -137,5 +153,13 @@ position = Vector2(922, 499)
 [node name="Spikes" parent="." instance=ExtResource("8_6trxg")]
 position = Vector2(2049, 512)
 scale = Vector2(0.5, 0.5)
+
+[node name="Moving Platform" parent="." instance=ExtResource("9_062py")]
+position = Vector2(201, 605)
+curve = SubResource("Curve2D_8q7ke")
+
+[node name="Moving Platform2" parent="." instance=ExtResource("9_062py")]
+position = Vector2(510, 2)
+curve = SubResource("Curve2D_3fudy")
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_knife_collected"]
