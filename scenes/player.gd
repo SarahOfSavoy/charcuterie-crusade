@@ -93,6 +93,7 @@ func walk():
 		
 func jump():
 	# Launches the player vertically, can jump one additional time while while midair
+	# Updated to prevent jumping for the first time in midair (i.e. if they fall off a platform, they shouldn't be able to jump for the first time)
 	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps and (current_jumps > 0 or not is_airborne):
 		$SFX/Jumping.play()
 		velocity.y = JUMP_VELOCITY
@@ -172,11 +173,17 @@ func take_damage(damage, knockback_direction = 0):
 	# Update the health bar
 	get_parent().get_node("HUD/Health/HealthBar").take_damage(damage)
 	
+	var damage_screen = load("res://scenes/screen_flash.tscn").instantiate()
+	add_child(damage_screen)
+	
 	# Take knockback
 	hit = true
 	velocity.y = hit_velocity.y
 	velocity.x = hit_velocity.x * knockback_direction
 	await get_tree().create_timer(0.2).timeout
 	hit = false
+	
+	await get_tree().create_timer(0.8).timeout
+	remove_child(damage_screen)
 	
 	
