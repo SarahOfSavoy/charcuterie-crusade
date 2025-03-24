@@ -21,6 +21,9 @@ var is_walking = false
 var dash_cooldown = false
 var attack_cooldown = false
 
+var hit = false
+var hit_velocity = Vector2(300, -300)
+
 # Store the x direction the player was last looking
 var last_direction = 1
 
@@ -37,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		var level_end = load("res://scenes/level_end.tscn").instantiate()
 		$Camera2D.add_child(level_end)
 	
+	
 	# Update values not directly related to player input
 	if is_on_floor():
 		is_airborne = false
@@ -46,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		 
 	else:
 		# Apply gravity
-		velocity += get_gravity() * delta
+		velocity.y += get_gravity().y * delta
 		is_airborne = true
 		
 	# Handle any movement directly controlled by player
@@ -68,6 +72,10 @@ func actions():
 		dash()
 	
 func walk():
+	# If hit, temporarily stunned (and to move the character)
+	if hit:
+		return
+		
 	# Handle walking and player direction
 	var direction := Input.get_axis("walk_left", "walk_right")
 	# Update last_direction when player actually moves
@@ -85,7 +93,8 @@ func walk():
 		
 func jump():
 	# Launches the player vertically, can jump one additional time while while midair
-	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
+	# Updated to prevent jumping for the first time in midair (i.e. if they fall off a platform, they shouldn't be able to jump for the first time)
+	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps and (current_jumps > 0 or not is_airborne):
 		$SFX/Jumping.play()
 		velocity.y = JUMP_VELOCITY
 		current_jumps += 1
@@ -153,8 +162,28 @@ func _on_pepper_collected() -> void:
 	max_jumps += 1
 	
 # Function called elsewhere to deal damage to the player
-func take_damage(damage):
+func take_damage(damage, knockback_direction = 0):
+	# If not healing and is dead, don't take damage
+	if damage > 0 and health <= 0:
+		return
+	
 	# Update the player health
 	health -= damage
+	Globals.health -= damage
 	# Update the health bar
 	get_parent().get_node("HUD/Health/HealthBar").take_damage(damage)
+	
+	var damage_screen = load("res://scenes/screen_flash.tscn").instantiate()
+	add_child(damage_screen)
+	
+	# Take knockback
+	hit = true
+	velocity.y = hit_velocity.y
+	velocity.x = hit_velocity.x * knockback_direction
+	await get_tree().create_timer(0.2).timeout
+	hit = false
+	
+	await get_tree().create_timer(0.8).timeout
+	remove_child(damage_screen)
+	
+	

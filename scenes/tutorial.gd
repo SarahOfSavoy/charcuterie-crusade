@@ -5,6 +5,7 @@ extends Node
 func _ready() -> void:
 	$LevelMusic.play()
 
+
 # When the player finishes the tutorial
 func _on_level_end_area_body_entered(_body: Node2D) -> void:
 	Globals.is_paused = true
