@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 50.0
 @export var patrol_distance: float = 100.0
-@export var max_health: int = 3  # Mob dies after 3 hits
+@export var max_health: int = 15  # Mob dies after 3 hits
 @export var should_patrol: bool = true  # Controls whether mob should patrol
 @export var patrol_pause_duration: float = 1.0  # Time to pause at patrol boundaries
 
@@ -87,9 +87,9 @@ func attack():
 	if player and $MobAttack.overlaps_body(player):  # Check if player is in the attack area
 		player.take_damage(15) # Signal the player's take_damage() function
 
-func take_damage():
-	health -= 1
-	$HealthBar.take_damage(1)
+func take_damage(damage):
+	health -= damage
+	$HealthBar.take_damage(5)
 
 func die():
 	# Add 200 points to the score

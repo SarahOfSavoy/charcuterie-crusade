@@ -31,7 +31,7 @@ func activate_attack_area():
 	# Enable the collision shape for the attack area
 	$CollisionShape2D.disabled = false
 
-	# Connect the body_entered signal to handle mob damage
+	# Connect the body_entered signal to handle damage
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
 
@@ -42,7 +42,7 @@ func deactivate_attack_area():
 	# Disable the collision shape for the attack area
 	$CollisionShape2D.disabled = true
 
-	# Disconnect the body_entered signal to stop handling mob damage
+	# Disconnect the body_entered signal to stop handling damage
 	if is_connected("body_entered", Callable(self, "_on_body_entered")):
 		disconnect("body_entered", Callable(self, "_on_body_entered"))
 		
@@ -51,5 +51,12 @@ func rotate_attack_area():
 
 # Handle when a body enters the attack area
 func _on_body_entered(body):
-	if body.is_in_group("mobs"):  # Only damage the mob if it's in the "mobs" group
-		body.take_damage()
+	if body.is_in_group("mobs"):
+		print("Hit:", body.name)
+		body.take_damage(5)
+		
+# Handle when an area enters the attack area
+func _on_area_entered(area):
+	if area.is_in_group("boss"):
+		print("Hit:", area.name)
+		area.take_damage(5)  # Call the take_damage() function on the area

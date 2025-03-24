@@ -23,6 +23,10 @@ Globals="*res://globals.gd"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+boss=""
+
 [input]
 
 walk_left={

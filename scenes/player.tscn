@@ -133,7 +133,7 @@ wait_time = 0.2
 wait_time = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -100)
+offset = Vector2(0, -50)
 limit_left = -40
 limit_right = 3900
 limit_bottom = 760
@@ -170,6 +170,7 @@ stream = ExtResource("21_hl6jg")
 volume_db = 12.0
 
 [node name="Attacking" type="AudioStreamPlayer2D" parent="SFX"]
+position = Vector2(4, 2)
 stream = ExtResource("21_jdjnl")
 
 [connection signal="attack_started" from="." to="RotationCenter/Attack" method="_on_player_attack_started"]

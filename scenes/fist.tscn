@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://j7x5xq6qlfi5"]
+
+[ext_resource type="Texture2D" uid="uid://dgch5bmeaywls" path="res://assets/art/fist.png" id="1_mbf6f"]
+[ext_resource type="Script" path="res://scenes/fist.gd" id="1_nvxsy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2m70"]
+radius = 59.2
+height = 292.8
+
+[node name="Fist" type="Area2D" node_paths=PackedStringArray("health_bar") groups=["boss"]]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_nvxsy")
+health_bar = NodePath("HealthBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["boss"]]
+position = Vector2(0.399994, -114.4)
+rotation = 3.14159
+texture = ExtResource("1_mbf6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["boss"]]
+position = Vector2(-1.2, -146.8)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_u2m70")
+debug_color = Color(0.838708, 0.349023, 0.43313, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="." groups=["boss"]]
+offset_right = 4.0
+offset_bottom = 27.0
+step = 1.0
+fill_mode = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
