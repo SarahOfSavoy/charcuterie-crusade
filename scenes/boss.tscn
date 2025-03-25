@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dnmxtpfgjlpve"]
+[gd_scene load_steps=10 format=4 uid="uid://b1sneg8c211tf"]
 
 [ext_resource type="Script" path="res://scenes/boss.gd" id="1_ch3jt"]
 [ext_resource type="Script" path="res://scenes/fist_spawner.gd" id="1_s11ay"]
@@ -193,17 +193,22 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_ynggs")
 sources/0 = SubResource("TileSetAtlasSource_pn6dc")
 
-[node name="BossLevel" type="Node2D"]
+[node name="BossLevel" type="Node2D" groups=["boss"]]
 
 [node name="Boss" type="Node2D" parent="."]
 script = ExtResource("1_ch3jt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Boss"]
-
-[node name="FistSpawner" type="Node2D" parent="Boss"]
+[node name="FistSpawner" type="Node2D" parent="Boss" node_paths=PackedStringArray("health_bar") groups=["boss"]]
 position = Vector2(0, -97)
 script = ExtResource("1_s11ay")
 fist_scene = ExtResource("3_dombo")
+health_bar = NodePath("HealthBar")
+
+[node name="HealthBar" type="ProgressBar" parent="Boss/FistSpawner"]
+offset_right = 4.0
+offset_bottom = 27.0
+step = 1.0
+fill_mode = 1
 
 [node name="KnifeSpawner" type="Node2D" parent="Boss"]
 position = Vector2(1, -47)

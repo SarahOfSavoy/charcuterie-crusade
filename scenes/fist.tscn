@@ -7,10 +7,9 @@
 radius = 59.2
 height = 292.8
 
-[node name="Fist" type="Area2D" node_paths=PackedStringArray("health_bar") groups=["boss"]]
+[node name="Fist" type="Area2D" groups=["boss"]]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_nvxsy")
-health_bar = NodePath("HealthBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["boss"]]
 position = Vector2(0.399994, -114.4)
@@ -19,14 +18,7 @@ texture = ExtResource("1_mbf6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["boss"]]
 position = Vector2(-1.2, -146.8)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_u2m70")
-debug_color = Color(0.838708, 0.349023, 0.43313, 0.42)
-
-[node name="HealthBar" type="ProgressBar" parent="." groups=["boss"]]
-offset_right = 4.0
-offset_bottom = 27.0
-step = 1.0
-fill_mode = 1
+debug_color = Color(0.873488, 0.313334, 0.39353, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

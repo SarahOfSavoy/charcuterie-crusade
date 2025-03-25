@@ -1,14 +1,14 @@
 extends Area2D
 
-@export var speed: float = 450.0  # Speed at which the fist moves down and up
+@export var speed: float = 500.0  # Speed at which the fist moves down and up
 @export var wait_time: float = 2.0  # Time to wait before retracting
 @export var max_health: int = 100  # Maximum health of the fist
-@export var health_bar: ProgressBar  # Reference to the health bar UI
+@export var current_health: int = 100
 
 enum State { MOVING_DOWN, WAITING, MOVING_UP }
 var current_state: State = State.MOVING_DOWN
 var wait_timer: float = 0.0
-var health: int = max_health
+var health: int = current_health
 
 func _ready():
 	# Set a random X position between 100 and 1000
@@ -16,7 +16,7 @@ func _ready():
 	# Spawn the fist above the screen
 	position.y = -50
 	# Initialize the health bar
-	update_health_bar()
+	
 
 func _physics_process(delta):
 	match current_state:
@@ -41,20 +41,32 @@ func _physics_process(delta):
 			if position.y < -50:
 				queue_free()
 
+signal boss_damaged(damage)
+
 func take_damage(damage):
-	print("Boss took damage! Health:", health)
-	health -= damage
-	update_health_bar()
-	if health <= 0:
+	emit_signal("boss_damaged", damage)  # Notify spawner
+	current_health -= damage
+
+	flash_red()  # Call the glow effect
+
+	print("Fist took damage! Remaining Health:", current_health)
+
+	if current_health <= 0:
+		die()
+
+func flash_red():
+	var sprite = $Sprite2D  # Adjust if your sprite has a different name
+	sprite.modulate = Color(0.8, 0.3, 0.3)  # Set red tint
+	await get_tree().create_timer(0.2).timeout  # Wait for 0.2 seconds
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal
+
+	if current_health <= 0:
 		die()
 
 func die():
 	print("Boss died")
 	queue_free()  # Remove the fist from the scene
 
-func update_health_bar():
-	if health_bar:
-		health_bar.value = (float(health) / max_health) * 100  # Update health bar percentage
 
 func _on_body_entered(body):
 	if body.name == "Player":  # Replace with your player's name or group

@@ -179,4 +179,5 @@ stream = ExtResource("21_jdjnl")
 [connection signal="timeout" from="AttackDuration" to="RotationCenter/Attack" method="_on_attack_duration_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="area_entered" from="RotationCenter/Attack" to="RotationCenter/Attack" method="_on_area_entered"]
 [connection signal="body_entered" from="RotationCenter/Attack" to="RotationCenter/Attack" method="_on_body_entered"]
