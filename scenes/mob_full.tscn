@@ -50,7 +50,7 @@ shape = SubResource("RectangleShape2D_mljh6")
 [node name="HealthBar" parent="." instance=ExtResource("3_00p5l")]
 position = Vector2(1042, 433)
 scale = Vector2(0.75, 0.75)
-totalHealth = 3
+totalHealth = 15
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

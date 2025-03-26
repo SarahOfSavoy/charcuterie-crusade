@@ -38,3 +38,4 @@ shape = SubResource("RectangleShape2D_coftm")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_kilnn")]
 position = Vector2(-50, -223)
+totalHealth = 15

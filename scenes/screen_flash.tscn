@@ -3,21 +3,6 @@
 [ext_resource type="Script" path="res://scenes/screen_flash.gd" id="1_fwwv3"]
 [ext_resource type="Texture2D" uid="uid://bs1utxfse5s6q" path="res://assets/art/damageflash.png" id="1_q0xo3"]
 
-[sub_resource type="Animation" id="Animation_4w74v"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 0.435275),
-"update": 0,
-"values": [Color(1, 1, 1, 0.352941), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_rfjl0"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +16,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.352941)]
+}
+
+[sub_resource type="Animation" id="Animation_4w74v"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.435275),
+"update": 0,
+"values": [Color(1, 1, 1, 0.352941), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ke1il"]

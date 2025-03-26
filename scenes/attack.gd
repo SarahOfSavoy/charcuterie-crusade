@@ -52,11 +52,11 @@ func rotate_attack_area():
 # Handle when a body enters the attack area
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
-		print("Hit:", body.name)
+		# print("Hit:", body.name)
 		body.take_damage(5)
 		
 # Handle when an area enters the attack area
 func _on_area_entered(area):
 	if area.is_in_group("boss"):
-		print("Hit:", area.name)
+		# print("Hit:", area.name)
 		area.take_damage(5)  # Call the take_damage() function on the area
