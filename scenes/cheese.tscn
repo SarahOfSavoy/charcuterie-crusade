@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxuau02by5lk2"]
+
+[ext_resource type="Script" path="res://scenes/mob.gd" id="1_77igu"]
+[ext_resource type="Texture2D" uid="uid://bwc0gif3o16b3" path="res://assets/art/stilton_cheese.png" id="2_swlad"]
+[ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_kilnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ohb8"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghl0d"]
+size = Vector2(384, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coftm"]
+size = Vector2(384, 352)
+
+[node name="Cheese" type="CharacterBody2D"]
+script = ExtResource("1_77igu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_swlad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ohb8")
+
+[node name="MobAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobAttack"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ghl0d")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_coftm")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_kilnn")]
+position = Vector2(-50, -223)
