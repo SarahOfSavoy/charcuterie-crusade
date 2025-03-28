@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://g7n7smh2i174"]
+[gd_scene load_steps=18 format=3 uid="uid://g7n7smh2i174"]
 
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="1_oaqdl"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="2_iplbn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="7_luhsu"]
 [ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="8_6trxg"]
 [ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="9_062py"]
+[ext_resource type="PackedScene" uid="uid://bpys3uvsw2ca" path="res://scenes/pickle.tscn" id="10_42uit"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mkkf"]
 
@@ -162,5 +163,8 @@ curve = SubResource("Curve2D_8q7ke")
 position = Vector2(510, 2)
 curve = SubResource("Curve2D_3fudy")
 speed = 0.5
+
+[node name="Pickle" parent="." instance=ExtResource("10_42uit")]
+position = Vector2(1258, 567)
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_knife_collected"]

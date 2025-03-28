@@ -102,13 +102,13 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wm5j"]
-size = Vector2(64, 64)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjnjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo6qp"]
 size = Vector2(53, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 5
 script = ExtResource("1_6twv0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -119,7 +119,8 @@ animation = &"walk"
 script = ExtResource("17_7oj02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7wm5j")
+scale = Vector2(2.17581, 1.53823)
+shape = SubResource("CapsuleShape2D_tjnjr")
 
 [node name="DashDuration" type="Timer" parent="."]
 wait_time = 0.1

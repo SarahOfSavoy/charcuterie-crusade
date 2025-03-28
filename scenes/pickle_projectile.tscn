@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://brpyuo5yspdp6"]
+
+[ext_resource type="Script" path="res://scenes/pickle_projectile.gd" id="1_ywbca"]
+[ext_resource type="Texture2D" uid="uid://dfqr8gsnlxdwr" path="res://assets/art/knife_01.png" id="2_p1ocm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6qgc"]
+radius = 5.65685
+height = 24.0435
+
+[node name="Pickle Projectile" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ywbca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p1ocm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.784076
+shape = SubResource("CapsuleShape2D_e6qgc")
