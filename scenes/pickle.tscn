@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpys3uvsw2ca"]
 
-[ext_resource type="Texture2D" uid="uid://vqs8c06csvkc" path="res://assets/art/box.png" id="1_a1xex"]
 [ext_resource type="Script" path="res://scenes/pickle.gd" id="1_qboog"]
 [ext_resource type="PackedScene" uid="uid://brpyuo5yspdp6" path="res://scenes/pickle_projectile.tscn" id="2_q2vnb"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="2_tmrgh"]
+[ext_resource type="Texture2D" uid="uid://b2x2wlx6opiio" path="res://assets/art/pickle.png" id="3_q63vb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha7xo"]
-size = Vector2(128, 128)
+size = Vector2(70, 147)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l06qq"]
 size = Vector2(1198, 711)
@@ -18,10 +18,11 @@ script = ExtResource("1_qboog")
 projectile_scene = ExtResource("2_q2vnb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_a1xex")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_q63vb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -4.5)
 shape = SubResource("RectangleShape2D_ha7xo")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_tmrgh")]

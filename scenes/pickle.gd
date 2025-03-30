@@ -85,7 +85,6 @@ func start_attack():
 	attack()
 
 func attack():
-	print("throw at ", player)
 	var projectile = projectile_scene.instantiate()
 	
 	var g = get_gravity().y
