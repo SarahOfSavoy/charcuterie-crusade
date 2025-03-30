@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://j7x5xq6qlfi5"]
+[gd_scene load_steps=3 format=3 uid="uid://j7x5xq6qlfi5"]
 
 [ext_resource type="Texture2D" uid="uid://dgch5bmeaywls" path="res://assets/art/fist.png" id="1_mbf6f"]
 [ext_resource type="Script" path="res://scenes/fist.gd" id="1_nvxsy"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2m70"]
-radius = 59.2
-height = 292.8
 
 [node name="Fist" type="Area2D" groups=["boss"]]
 scale = Vector2(2.5, 2.5)
@@ -16,9 +12,8 @@ position = Vector2(0.399994, -114.4)
 rotation = 3.14159
 texture = ExtResource("1_mbf6f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["boss"]]
-position = Vector2(-1.2, -146.8)
-shape = SubResource("CapsuleShape2D_u2m70")
-debug_color = Color(0.873488, 0.313334, 0.39353, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-36, 0.8, 44.8, -14, 59.6, -61.2, 58.4, -96.4, 64, -294.8, -34.8, -294, -25.6, -248.8, -16.8, -230, -12, -124.8, -59.6, -70.8, -64, -22)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="boss_damaged" from="." to="." method="on_boss_damaged"]

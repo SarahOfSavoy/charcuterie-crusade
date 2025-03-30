@@ -45,11 +45,8 @@ signal boss_damaged(damage)
 
 func take_damage(damage):
 	emit_signal("boss_damaged", damage)  # Notify spawner
-	current_health -= damage
 
 	flash_red()  # Call the glow effect
-
-	print("Fist took damage! Remaining Health:", current_health)
 
 	if current_health <= 0:
 		die()

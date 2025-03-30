@@ -19,9 +19,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_uuesv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -400)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0872803, -117.377, 0, 0, 0, 0, 0, -400)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_umt7r"]
 _data = {
@@ -837,14 +837,14 @@ text = "Welcome to Charcuterie Crusade!
 Use A and D or left/right arrow keys to move left and right.
 Use Space to Jump.
 
-Collect butter for score!"
+Collect butter for score and health!"
 
 [node name="Platform" type="Label" parent="Labels"]
 layout_mode = 0
-offset_left = 1503.0
-offset_top = 212.0
-offset_right = 1794.0
-offset_bottom = 313.0
+offset_left = 1735.0
+offset_top = 298.0
+offset_right = 1847.0
+offset_bottom = 349.0
 text = "Platform!"
 
 [node name="Knife" type="Label" parent="Labels"]

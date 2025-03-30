@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://b1sneg8c211tf"]
+[gd_scene load_steps=13 format=4 uid="uid://b1sneg8c211tf"]
 
 [ext_resource type="Script" path="res://scenes/boss.gd" id="1_ch3jt"]
+[ext_resource type="Texture2D" uid="uid://cbq5u0kbatrqb" path="res://assets/art/backgrounds/kitchen.jpg" id="1_pottd"]
 [ext_resource type="Script" path="res://scenes/fist_spawner.gd" id="1_s11ay"]
 [ext_resource type="Texture2D" uid="uid://cwn4ltdv8h0kw" path="res://assets/art/Tileset_8.png" id="2_dbuji"]
 [ext_resource type="PackedScene" uid="uid://j7x5xq6qlfi5" path="res://scenes/fist.tscn" id="3_dombo"]
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_lgie8"]
+[ext_resource type="Script" path="res://scenes/knife_spawner.gd" id="4_ru05a"]
+[ext_resource type="PackedScene" uid="uid://b8javuvn8ih1g" path="res://butcher_knife.tscn" id="5_j0oeu"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="7_npra4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ynggs"]
@@ -195,14 +198,30 @@ sources/0 = SubResource("TileSetAtlasSource_pn6dc")
 
 [node name="BossLevel" type="Node2D" groups=["boss"]]
 
+[node name="Scrolling Background" type="ParallaxBackground" parent="."]
+
+[node name="Background Layer" type="ParallaxLayer" parent="Scrolling Background"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+position = Vector2(-5396, -890)
+scale = Vector2(9.61351, 9.77475)
+texture = ExtResource("1_pottd")
+centered = false
+
+[node name="FreezerBackground" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_right = 1165.0
+offset_bottom = 2560.0
+color = Color(0.306923, 0.306923, 0.306923, 1)
+
 [node name="Boss" type="Node2D" parent="."]
 script = ExtResource("1_ch3jt")
 
-[node name="FistSpawner" type="Node2D" parent="Boss" node_paths=PackedStringArray("health_bar") groups=["boss"]]
+[node name="FistSpawner" type="Node2D" parent="Boss" groups=["boss"]]
 position = Vector2(0, -97)
 script = ExtResource("1_s11ay")
 fist_scene = ExtResource("3_dombo")
-health_bar = NodePath("HealthBar")
 
 [node name="HealthBar" type="ProgressBar" parent="Boss/FistSpawner"]
 offset_right = 4.0
@@ -212,9 +231,11 @@ fill_mode = 1
 
 [node name="KnifeSpawner" type="Node2D" parent="Boss"]
 position = Vector2(1, -47)
+script = ExtResource("4_ru05a")
+butcher_knife_scene = ExtResource("5_j0oeu")
 
 [node name="Player" parent="." instance=ExtResource("3_lgie8")]
-position = Vector2(102, 587)
+position = Vector2(95, 591)
 max_jumps = 2
 can_attack = true
 can_dash = true
