@@ -15,7 +15,7 @@ func _on_restart_pressed() -> void:
 	if "tutorial" in current_scene.to_lower():
 		Globals.score = Globals.checkpoint.score
 		var player = get_parent().get_parent()
-		player.health = 100  # Fully heal the player
+		player.heal(100 - Globals.health)
 		player.position = Globals.checkpoint.position
 	
 	# Reload the current scene to reset everything

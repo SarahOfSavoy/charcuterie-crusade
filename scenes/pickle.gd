@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var max_health: int = 15  # Mob dies after 3 hits
 @export var should_patrol: bool = true  # Controls whether mob should patrol
 @export var patrol_pause_duration: float = 1.0  # Time to pause at patrol boundaries
+@export var projectile_scene: PackedScene
 
 var direction: int = 1  # 1 for right, -1 for left
 var start_position: Vector2
@@ -20,9 +21,9 @@ func _ready():
 	start_position = position
 	original_direction = direction  # Store the initial patrol direction
 	# Set attack_range to the bounds of the DetectionArea
-	var detection_shape = $DetectionArea/CollisionShape2D.shape
+	var detection_shape = $Detection/CollisionShape2D.shape
 	if detection_shape is RectangleShape2D:
-		attack_range = detection_shape.size.x / 2  # Use half the width as the range
+		attack_range = detection_shape.size.x  # Use half the width as the range
 
 func _physics_process(_delta):
 	if health <= 0:
@@ -62,7 +63,7 @@ func pause_at_boundary():
 func face_player():
 	if player:
 		# Determine the direction to face the player
-		var new_direction = 1 if player.global_position.x > global_position.x else -1
+		var new_direction = 1 if player.position.x > position.x else -1
 		if new_direction != direction:
 			# Immediately turn around to face the player
 			direction = new_direction
@@ -80,12 +81,27 @@ func stop_and_attack():
 
 func start_attack():
 	# Wait for a short delay before attacking
-	await get_tree().create_timer(1.0).timeout  # Adjust delay as needed
+	await get_tree().create_timer(3.0).timeout  # Adjust delay as needed
 	attack()
 
 func attack():
-	if player and $MobAttack.overlaps_body(player):  # Check if player is in the attack area
-		player.take_damage(15, direction) # Signal the player's take_damage() function
+	var projectile = projectile_scene.instantiate()
+	
+	var g = get_gravity().y
+	var x_y = player.global_position - global_position
+	var x = x_y.x
+	var y = x_y.y
+	var initial_angle = 7 * PI / 4
+	if direction == -1:
+		initial_angle = 5 * PI / 4
+	
+	
+	var initial_velocity = sqrt((g * x**2) / (2 * (cos(initial_angle)**2) * (-x * tan(initial_angle) + y)))
+	
+	
+	projectile.vel_x = initial_velocity * cos(initial_angle)
+	projectile.vel_y = initial_velocity * sin(initial_angle)
+	add_child(projectile)
 
 func take_damage(damage):
 	health -= damage

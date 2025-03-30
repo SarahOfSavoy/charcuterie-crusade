@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://brpyuo5yspdp6"]
+
+[ext_resource type="Script" path="res://scenes/pickle_projectile.gd" id="1_ywbca"]
+[ext_resource type="Texture2D" uid="uid://ty3noad3k5a6" path="res://assets/art/pickle_projectile.png" id="2_p7ywf"]
+[ext_resource type="Script" path="res://scenes/hitbox.gd" id="3_1l2jk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3tm"]
+radius = 2.82843
+height = 19.799
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0psy"]
+radius = 7.07107
+height = 28.2843
+
+[node name="Pickle Projectile" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_ywbca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 24)
+rotation = 0.384724
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_p7ywf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2c3tm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("3_1l2jk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j0psy")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

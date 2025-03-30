@@ -4,6 +4,7 @@ class_name Player # Can check if a node is a Player
 const SPEED = 400.0
 const DASHSPEED = 1500.0
 const JUMP_VELOCITY = -600.0
+const MAX_HEALTH = 100
 
 var health = 100
 @export var max_jumps = 1
@@ -185,5 +186,10 @@ func take_damage(damage, knockback_direction = 0):
 	
 	await get_tree().create_timer(0.8).timeout
 	remove_child(damage_screen)
-	
-	
+
+
+func heal(health_amt):
+	if health < MAX_HEALTH:
+		health += health_amt
+		Globals.health += health_amt
+		get_parent().get_node("HUD/Health/HealthBar").take_damage(-health_amt)
