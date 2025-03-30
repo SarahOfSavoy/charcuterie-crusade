@@ -18,31 +18,30 @@ position = Vector2(-145, 10)
 script = ExtResource("1_n0x2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1077, 564)
 scale = Vector2(6, 6)
 texture = ExtResource("2_x2fko")
 region_enabled = true
 region_rect = Rect2(13.5, 67.25, 24, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1081, 584)
+position = Vector2(3, 10)
 shape = SubResource("RectangleShape2D_5uqgo")
 
 [node name="MobAttack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobAttack"]
-position = Vector2(1083, 580)
+position = Vector2(1, 16)
 shape = SubResource("CircleShape2D_lelyy")
 debug_color = Color(0.996319, 0, 0.189017, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(1081.5, 584.75)
+position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_mljh6")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_yyuv4")]
-position = Vector2(1042, 433)
+position = Vector2(-41, -74)
 scale = Vector2(0.75, 0.75)
 totalHealth = 15
 

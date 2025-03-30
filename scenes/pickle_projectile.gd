@@ -10,4 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if (abs(linear_velocity.x) < 10 and abs(linear_velocity.y) < 10) or linear_velocity.y > 1500:
+		queue_free()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.take_damage(15)
+		queue_free()

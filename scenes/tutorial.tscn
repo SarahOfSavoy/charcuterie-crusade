@@ -324,33 +324,33 @@ position = Vector2(888, 640)
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Mob" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(704, -984)
+position = Vector2(1731, -414)
 
 [node name="Mob3" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(224, -984)
+position = Vector2(1280, -414)
 
 [node name="Mob4" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(-192, -1376)
+position = Vector2(845, -799)
 
 [node name="Mob6" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(328, -2604)
+position = Vector2(1387, -2026)
 
 [node name="Mob7" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(1236, -2604)
+position = Vector2(2277, -2027)
 
 [node name="Mob8" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(1816, -2600)
+position = Vector2(2898, -2028)
 
 [node name="Mob5" parent="Mobs" instance=ExtResource("4_76re5")]
-position = Vector2(-528, -984)
+position = Vector2(429, -414)
 
 [node name="Mob1" parent="Mobs" instance=ExtResource("7_ld5pt")]
-position = Vector2(2275, -14)
+position = Vector2(3368, 557)
 speed = 0.0
 should_patrol = false
 
 [node name="Mob2" parent="Mobs" instance=ExtResource("7_ld5pt")]
-position = Vector2(2610, -14)
+position = Vector2(3683, 554)
 speed = 0.0
 should_patrol = false
 

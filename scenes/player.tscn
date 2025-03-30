@@ -145,6 +145,7 @@ drag_vertical_enabled = true
 
 [node name="Attack" type="Area2D" parent="RotationCenter"]
 position = Vector2(40, 1)
+collision_mask = 17
 script = ExtResource("3_erv2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="RotationCenter/Attack"]

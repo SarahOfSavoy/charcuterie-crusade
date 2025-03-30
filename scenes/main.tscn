@@ -165,6 +165,7 @@ curve = SubResource("Curve2D_3fudy")
 speed = 0.5
 
 [node name="Pickle" parent="." instance=ExtResource("10_42uit")]
-position = Vector2(1258, 567)
+position = Vector2(1217, 343)
+collision_layer = 1
 
 [connection signal="knife_collected" from="Knife" to="Player" method="_on_knife_knife_collected"]

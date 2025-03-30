@@ -62,7 +62,7 @@ func pause_at_boundary():
 func face_player():
 	if player:
 		# Determine the direction to face the player
-		var new_direction = 1 if player.position.x > position.x else -1
+		var new_direction = 1 if player.global_position.x > global_position.x else -1
 		if new_direction != direction:
 			# Immediately turn around to face the player
 			direction = new_direction

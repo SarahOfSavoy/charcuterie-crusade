@@ -11,7 +11,7 @@ func _on_restart_pressed() -> void:
 	Globals.is_paused = false
 	Globals.score = Globals.checkpoint.score
 	var player = get_parent().get_parent()
-	player.take_damage(Globals.health - 100)
+	player.heal(100 - Globals.health)
 	player.position = Globals.checkpoint.position
 	queue_free()
 

@@ -81,14 +81,27 @@ func stop_and_attack():
 
 func start_attack():
 	# Wait for a short delay before attacking
-	await get_tree().create_timer(2.0).timeout  # Adjust delay as needed
+	await get_tree().create_timer(3.0).timeout  # Adjust delay as needed
 	attack()
 
 func attack():
-	print("attack")
+	print("throw at ", player)
 	var projectile = projectile_scene.instantiate()
-	projectile.vel_x = 500 * direction
-	projectile.vel_y = -500
+	
+	var g = get_gravity().y
+	var x_y = player.global_position - global_position
+	var x = x_y.x
+	var y = x_y.y
+	var initial_angle = 7 * PI / 4
+	if direction == -1:
+		initial_angle = 5 * PI / 4
+	
+	
+	var initial_velocity = sqrt((g * x**2) / (2 * (cos(initial_angle)**2) * (-x * tan(initial_angle) + y)))
+	
+	
+	projectile.vel_x = initial_velocity * cos(initial_angle)
+	projectile.vel_y = initial_velocity * sin(initial_angle)
 	add_child(projectile)
 
 func take_damage(damage):

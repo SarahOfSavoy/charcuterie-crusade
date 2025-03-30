@@ -9,10 +9,11 @@
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l06qq"]
-size = Vector2(1198, 282.5)
+size = Vector2(1198, 711)
 
 [node name="Pickle" type="CharacterBody2D" groups=["mobs"]]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_qboog")
 projectile_scene = ExtResource("2_q2vnb")
 
@@ -28,6 +29,7 @@ position = Vector2(-50, -112)
 totalHealth = 15
 
 [node name="Detection" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("RectangleShape2D_l06qq")

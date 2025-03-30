@@ -1,20 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://brpyuo5yspdp6"]
+[gd_scene load_steps=6 format=3 uid="uid://brpyuo5yspdp6"]
 
 [ext_resource type="Script" path="res://scenes/pickle_projectile.gd" id="1_ywbca"]
 [ext_resource type="Texture2D" uid="uid://dfqr8gsnlxdwr" path="res://assets/art/knife_01.png" id="2_p1ocm"]
+[ext_resource type="Script" path="res://scenes/hitbox.gd" id="3_1l2jk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6qgc"]
-radius = 5.65685
-height = 24.0435
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3tm"]
+radius = 2.82843
+height = 19.799
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0psy"]
+radius = 7.07107
+height = 28.2843
 
 [node name="Pickle Projectile" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 16
+collision_mask = 16
+lock_rotation = true
 script = ExtResource("1_ywbca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_p1ocm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -0.784076
-shape = SubResource("CapsuleShape2D_e6qgc")
+rotation = -0.785398
+shape = SubResource("CapsuleShape2D_2c3tm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("3_1l2jk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = -0.785398
+shape = SubResource("CapsuleShape2D_j0psy")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
