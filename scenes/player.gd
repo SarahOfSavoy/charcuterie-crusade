@@ -193,3 +193,7 @@ func heal(health_amt):
 		health += health_amt
 		Globals.health += health_amt
 		get_parent().get_node("HUD/Health/HealthBar").take_damage(-health_amt)
+
+
+func _on_salt_body_entered(body: Node2D) -> void:
+	can_dash = true

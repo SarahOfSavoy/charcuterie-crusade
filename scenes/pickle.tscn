@@ -34,6 +34,7 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("RectangleShape2D_l06qq")
+debug_color = Color(0, 0.6, 0.701961, 0.027451)
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_area_body_exited"]
