@@ -87,6 +87,9 @@ func start_attack():
 func attack():
 	var projectile = projectile_scene.instantiate()
 	
+	if not player:
+		return
+	
 	var g = get_gravity().y
 	var x_y = player.global_position - global_position
 	var x = x_y.x

@@ -95,7 +95,7 @@ func walk():
 func jump():
 	# Launches the player vertically, can jump one additional time while while midair
 	# Updated to prevent jumping for the first time in midair (i.e. if they fall off a platform, they shouldn't be able to jump for the first time)
-	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps and (current_jumps > 0 or not is_airborne):
+	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
 		$SFX/Jumping.play()
 		velocity.y = JUMP_VELOCITY
 		current_jumps += 1

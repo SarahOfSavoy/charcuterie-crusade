@@ -12,7 +12,6 @@ size = Vector2(70, 147)
 size = Vector2(1198, 711)
 
 [node name="Pickle" type="CharacterBody2D" groups=["mobs"]]
-collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_qboog")
 projectile_scene = ExtResource("2_q2vnb")
@@ -26,7 +25,8 @@ position = Vector2(-6, -4.5)
 shape = SubResource("RectangleShape2D_ha7xo")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_tmrgh")]
-position = Vector2(-50, -112)
+position = Vector2(-44, -103)
+scale = Vector2(0.75, 0.75)
 totalHealth = 15
 
 [node name="Detection" type="Area2D" parent="."]
@@ -34,7 +34,6 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("RectangleShape2D_l06qq")
-debug_color = Color(0, 0.6, 0.701961, 0.027451)
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_area_body_exited"]
