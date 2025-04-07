@@ -14,4 +14,4 @@ func take_damage(damage):
 	
 	# Alter the size of the health bar relative to the current health
 	$damage.set_modulate(Color(1, 1, 1, 1 - currentHealth / totalHealth))
-	$Label.text = str(currentHealth) + " / " + str(totalHealth)
+	$Label.text = str(max(currentHealth, 0)) + " / " + str(totalHealth)

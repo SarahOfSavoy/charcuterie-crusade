@@ -38,10 +38,13 @@ func level_menu(id):
 	if id == 0: # Level 1
 		Globals.starting_pos = Vector2(3154, -400)
 		Globals.can_attack = true
+		Globals.can_dash = false
+		Globals.max_jumps = 1
 	elif id == 1: # Level 2
 		Globals.starting_pos = Vector2(176, -1916)
 		Globals.can_attack = true
 		Globals.max_jumps = 2
+		Globals.can_dash = false
 	elif id == 2: # Level 3
 		Globals.starting_pos = Vector2(3836, -3692)
 		Globals.can_attack = true
