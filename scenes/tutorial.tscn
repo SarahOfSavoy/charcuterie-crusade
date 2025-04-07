@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="11_5tcyc"]
 [ext_resource type="PackedScene" uid="uid://b75jkowkfchko" path="res://scenes/pepper.tscn" id="13_q3fh6"]
 [ext_resource type="PackedScene" uid="uid://vkkrlr28qhor" path="res://scenes/checkpoint.tscn" id="14_ysho7"]
-[ext_resource type="PackedScene" path="res://scenes/salt.tscn" id="15_jpoa2"]
+[ext_resource type="PackedScene" uid="uid://c8yrcbyatcx1s" path="res://scenes/salt.tscn" id="15_jpoa2"]
 [ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="15_umy3p"]
 
 [sub_resource type="Curve2D" id="Curve2D_uuesv"]
@@ -453,6 +453,102 @@ scale = Vector2(0.6, 0.6)
 
 [node name="Platform74" parent="Platforms" instance=ExtResource("4_eawga")]
 position = Vector2(1532, -4772)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform76" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2260, -4332)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform77" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1788, -4320)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform78" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1424, -4424)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform79" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1076, -4496)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform80" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(644, -4492)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform81" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(160, -4532)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform82" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2072, -4416)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform83" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2460, -4324)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform84" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1672, -4424)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform85" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1056, -4548)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform86" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1116, -2532)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform87" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(880, -2356)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform88" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(516, -2232)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform89" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1444, -2828)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform90" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1720, -2440)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform91" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2072, -2884)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform92" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(1840, -2600)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform93" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2300, -2476)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform94" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2696, -2588)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform95" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(3068, -2652)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform96" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(3424, -2776)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform97" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(3684, -2908)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform98" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(2016, -2176)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform99" parent="Platforms" instance=ExtResource("4_eawga")]
+position = Vector2(3056, -2292)
 scale = Vector2(0.6, 0.6)
 
 [node name="Platform48" parent="Platforms" instance=ExtResource("4_eawga")]
@@ -1164,7 +1260,8 @@ offset_left = 3348.0
 offset_top = -3428.0
 offset_right = 3558.0
 offset_bottom = -3249.0
-text = "Collect the salt to unlock a dash!"
+text = "Collect the salt to unlock a dash!
+Use SHIFT to dash"
 autowrap_mode = 2
 
 [node name="Cheese" type="Label" parent="Labels"]
