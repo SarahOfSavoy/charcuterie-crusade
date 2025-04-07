@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=28 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
-[ext_resource type="Texture2D" uid="uid://djx34ypyneam0" path="res://assets/art/backgrounds/bg1.png" id="2_k1l4k"]
+[ext_resource type="Texture2D" uid="uid://djo7ocq3phdfb" path="res://assets/art/backgrounds/fridgebackground1.png" id="2_jcnw1"]
 [ext_resource type="Texture2D" uid="uid://cwn4ltdv8h0kw" path="res://assets/art/Tileset_8.png" id="2_ngfgb"]
+[ext_resource type="Texture2D" uid="uid://c3q8lxcf2xaqv" path="res://assets/art/backgrounds/fridgebackground2.png" id="2_tjlri"]
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_jdcym"]
 [ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="4_76re5"]
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_eawga"]
@@ -237,10 +238,15 @@ script = ExtResource("1_qaf8i")
 [node name="Background Layer" type="ParallaxLayer" parent="Scrolling Background"]
 motion_scale = Vector2(0.2, 0.2)
 
+[node name="Sprite2D" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+position = Vector2(2046, -454)
+scale = Vector2(2.83594, 2.64453)
+texture = ExtResource("2_tjlri")
+
 [node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
-position = Vector2(-19, -811)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_k1l4k")
+position = Vector2(-138, -3135)
+scale = Vector2(2.83594, 2.90234)
+texture = ExtResource("2_jcnw1")
 centered = false
 
 [node name="Moving Platforms" type="Node2D" parent="."]
