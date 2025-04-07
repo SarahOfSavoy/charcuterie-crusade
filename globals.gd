@@ -15,3 +15,11 @@ var health = max_health
 
 # Last checkpoint
 var checkpoint = null
+
+# Starting position
+var starting_pos = Vector2(893, 648)
+
+# Player upgrades
+var can_attack = false
+var max_jumps = 1
+var can_dash = false

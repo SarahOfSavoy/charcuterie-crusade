@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="11_5tcyc"]
 [ext_resource type="PackedScene" uid="uid://b75jkowkfchko" path="res://scenes/pepper.tscn" id="13_q3fh6"]
 [ext_resource type="PackedScene" uid="uid://vkkrlr28qhor" path="res://scenes/checkpoint.tscn" id="14_ysho7"]
-[ext_resource type="PackedScene" uid="uid://c8yrcbyatcx1s" path="res://scenes/salt.tscn" id="15_jpoa2"]
+[ext_resource type="PackedScene" path="res://scenes/salt.tscn" id="15_jpoa2"]
 [ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="15_umy3p"]
 
 [sub_resource type="Curve2D" id="Curve2D_uuesv"]

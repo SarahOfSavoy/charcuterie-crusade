@@ -31,7 +31,10 @@ var last_direction = 1
 signal attack_started
 
 func _physics_process(delta: float) -> void:
-	# Ignore any input if the player is paused
+	if Input.is_action_just_pressed("pause"):
+		Engine.time_scale = 0
+		$"Camera2D/Pause Menu".visible = true
+	
 	if Globals.is_paused:
 		return
 	
@@ -172,7 +175,7 @@ func take_damage(damage, knockback_direction = 0):
 	health -= damage
 	Globals.health -= damage
 	# Update the health bar
-	get_parent().get_node("HUD/Health/HealthBar").take_damage(damage)
+	get_parent().get_node("HUD/Player Healthbar").take_damage(damage)
 	
 	var damage_screen = load("res://scenes/screen_flash.tscn").instantiate()
 	add_child(damage_screen)
@@ -192,7 +195,7 @@ func heal(health_amt):
 	if health < MAX_HEALTH:
 		health += health_amt
 		Globals.health += health_amt
-		get_parent().get_node("HUD/Health/HealthBar").take_damage(-health_amt)
+		get_parent().get_node("HUD/Player Healthbar").take_damage(-health_amt)
 
 
 func _on_salt_body_entered(body: Node2D) -> void:

@@ -8,9 +8,9 @@ script = ExtResource("1_eqorr")
 [node name="Bar" type="ColorRect" parent="."]
 offset_right = 100.0
 offset_bottom = 25.0
-color = Color(7.55653e-06, 0.810651, 0, 1)
+color = Color(0.835294, 0, 0, 1)
 
 [node name="Health" type="ColorRect" parent="."]
 offset_right = 100.0
 offset_bottom = 25.0
-color = Color(0.835718, 3.22476e-06, 7.70092e-07, 1)
+color = Color(0, 0.811765, 0, 1)
