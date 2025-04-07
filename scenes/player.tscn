@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ce4ydmycoux7o"]
+[gd_scene load_steps=27 format=3 uid="uid://ce4ydmycoux7o"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6twv0"]
 [ext_resource type="Texture2D" uid="uid://bi1afbccg6kbo" path="res://assets/art/player sprites/idle_polished/1.png" id="3_8jobv"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bgmuajwwivkc" path="res://assets/audio/impactGeneric_light_001.ogg" id="19_xcb4b"]
 [ext_resource type="AudioStream" uid="uid://dgac7e41dijaq" path="res://assets/audio/impactSoft_heavy_001.ogg" id="21_hl6jg"]
 [ext_resource type="AudioStream" uid="uid://d0upki34qcams" path="res://assets/audio/impactPlank_medium_000.ogg" id="21_jdjnl"]
+[ext_resource type="PackedScene" uid="uid://cnmwi1mfteoc" path="res://scenes/pause_menu.tscn" id="23_kska7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clcnc"]
 animations = [{
@@ -142,6 +143,9 @@ limit_right = 3900
 limit_bottom = 760
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Pause Menu" parent="Camera2D" instance=ExtResource("23_kska7")]
+visible = false
 
 [node name="RotationCenter" type="Marker2D" parent="."]
 
