@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://t3e5afoao01o"]
+[gd_scene load_steps=5 format=3 uid="uid://t3e5afoao01o"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_porsv"]
-[ext_resource type="PackedScene" uid="uid://ofu5d3gb8v20" path="res://scenes/player_healthbar.tscn" id="3_1xwkn"]
+[ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="2_x42d3"]
+[ext_resource type="PackedScene" uid="uid://phnwfrwug0l6" path="res://scenes/player_healthbar.tscn" id="3_1xwkn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a1uum"]
 font_size = 25
@@ -19,6 +20,7 @@ offset_top = 26.0
 offset_right = -32.0
 offset_bottom = 61.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_x42d3")
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_a1uum")
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl7golr87ljhx"]
+[gd_scene load_steps=6 format=3 uid="uid://bl7golr87ljhx"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_tegk4"]
+[ext_resource type="Texture2D" uid="uid://rlwrkekiyfwl" path="res://assets/art/backgrounds/mainmenu.png" id="2_6t0qf"]
 [ext_resource type="AudioStream" uid="uid://bk127qmbh5lqk" path="res://assets/audio/menu.wav" id="2_kvo5b"]
+[ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="3_vdm6r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7j38v"]
 font_size = 45
@@ -15,42 +17,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tegk4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -199.0
-offset_right = 74.0
-offset_bottom = -98.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Start"
-
-[node name="SelectButton" type="MenuButton" parent="VBoxContainer"]
-layout_mode = 2
-text = "Select Level"
-flat = false
-item_count = 4
-popup/item_0/text = "Level 1"
-popup/item_1/text = "Level 2"
-popup/item_1/id = 1
-popup/item_2/text = "Level 3"
-popup/item_2/id = 2
-popup/item_3/text = "Boss"
-popup/item_3/id = 3
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.875, 329)
+scale = Vector2(0.748535, 0.638672)
+texture = ExtResource("2_6t0qf")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,6 +36,7 @@ offset_right = 222.5
 offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vdm6r")
 text = "Charcuterie Crusade"
 label_settings = SubResource("LabelSettings_7j38v")
 
@@ -70,5 +44,50 @@ label_settings = SubResource("LabelSettings_7j38v")
 stream = ExtResource("2_kvo5b")
 volume_db = -1.0
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 684.0
+offset_top = 289.0
+offset_right = 995.0
+offset_bottom = 388.0
+theme_override_colors/font_hover_pressed_color = Color(0.961601, 0.854427, 0.732784, 1)
+theme_override_colors/font_color = Color(0.898039, 0.698039, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_vdm6r")
+theme_override_font_sizes/font_size = 85
+text = "Start"
+
+[node name="SelectButton" type="MenuButton" parent="."]
+layout_mode = 2
+offset_left = 681.0
+offset_top = 407.0
+offset_right = 999.0
+offset_bottom = 505.0
+theme_override_colors/font_hover_pressed_color = Color(0.961601, 0.854427, 0.732784, 1)
+theme_override_colors/font_color = Color(0.898039, 0.698039, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_vdm6r")
+theme_override_font_sizes/font_size = 45
+text = "Select Level"
+flat = false
+item_count = 4
+popup/item_0/text = "Level 1"
+popup/item_1/text = "Level 2"
+popup/item_1/id = 1
+popup/item_2/text = "Level 3"
+popup/item_2/id = 2
+popup/item_3/text = "Boss"
+popup/item_3/id = 3
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 686.0
+offset_top = 525.0
+offset_right = 997.0
+offset_bottom = 621.0
+theme_override_colors/font_hover_pressed_color = Color(0.961601, 0.854427, 0.732784, 1)
+theme_override_colors/font_color = Color(0.898039, 0.698039, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_vdm6r")
+theme_override_font_sizes/font_size = 80
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

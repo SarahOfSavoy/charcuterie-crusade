@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdsfohr2b5k1v"]
 
 [ext_resource type="Script" path="res://scenes/mob.gd" id="1_n0x2y"]
-[ext_resource type="Texture2D" uid="uid://dgmrpnjtwiqbl" path="res://assets/art/FOOD NL.png" id="2_x2fko"]
+[ext_resource type="Texture2D" uid="uid://tpxov2n8ih2x" path="res://assets/art/tomato.webp" id="2_5qpme"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_yyuv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
@@ -18,9 +18,8 @@ position = Vector2(-145, 10)
 script = ExtResource("1_n0x2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(6, 6)
-texture = ExtResource("2_x2fko")
-region_enabled = true
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_5qpme")
 region_rect = Rect2(13.5, 67.25, 24, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

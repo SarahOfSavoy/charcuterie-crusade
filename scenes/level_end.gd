@@ -3,7 +3,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"Level End Screen/Score Label".text = "Score: " + str(Globals.score)
+	$"Score Label".text = "Score: " + str(Globals.score)
 
 func is_boss_level() -> bool:
 	return get_tree().current_scene.name == "BossLevel"

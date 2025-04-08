@@ -3,7 +3,7 @@ extends Control
 
 func _ready() -> void:
 	$Music.play()
-	var popup = $VBoxContainer/SelectButton.get_popup()
+	var popup = $SelectButton.get_popup()
 	popup.id_pressed.connect(level_menu)
 
 

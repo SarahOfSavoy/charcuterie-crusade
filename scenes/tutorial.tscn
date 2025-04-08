@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=29 format=4 uid="uid://couu80tn717wu"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
+[ext_resource type="Texture2D" uid="uid://dawh4sp5a2ben" path="res://assets/art/backgrounds/fridgebackground3.png" id="2_32787"]
 [ext_resource type="Texture2D" uid="uid://djo7ocq3phdfb" path="res://assets/art/backgrounds/fridgebackground1.png" id="2_jcnw1"]
 [ext_resource type="Texture2D" uid="uid://cwn4ltdv8h0kw" path="res://assets/art/Tileset_8.png" id="2_ngfgb"]
-[ext_resource type="Texture2D" uid="uid://c3q8lxcf2xaqv" path="res://assets/art/backgrounds/fridgebackground2.png" id="2_tjlri"]
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_jdcym"]
 [ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="4_76re5"]
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_eawga"]
@@ -17,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="11_5tcyc"]
 [ext_resource type="PackedScene" uid="uid://b75jkowkfchko" path="res://scenes/pepper.tscn" id="13_q3fh6"]
 [ext_resource type="PackedScene" uid="uid://vkkrlr28qhor" path="res://scenes/checkpoint.tscn" id="14_ysho7"]
-[ext_resource type="PackedScene" path="res://scenes/salt.tscn" id="15_jpoa2"]
+[ext_resource type="PackedScene" uid="uid://c8yrcbyatcx1s" path="res://scenes/salt.tscn" id="15_jpoa2"]
 [ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="15_umy3p"]
+[ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="18_ckkec"]
 
 [sub_resource type="Curve2D" id="Curve2D_uuesv"]
 _data = {
@@ -225,7 +226,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_esuur")
 sources/3 = SubResource("TileSetAtlasSource_xvm2g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wavc8"]
-size = Vector2(123.725, 20)
+size = Vector2(93.7024, 32.7411)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qb4dl"]
 distance = 584.0
@@ -234,18 +235,19 @@ distance = 584.0
 script = ExtResource("1_qaf8i")
 
 [node name="Scrolling Background" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(3, 3)
 
 [node name="Background Layer" type="ParallaxLayer" parent="Scrolling Background"]
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scrolling Background/Background Layer"]
-position = Vector2(2046, -454)
-scale = Vector2(2.83594, 2.64453)
-texture = ExtResource("2_tjlri")
+position = Vector2(1689.31, -463.188)
+scale = Vector2(2.60636, 2.19299)
+texture = ExtResource("2_32787")
 
 [node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
-position = Vector2(-138, -3135)
-scale = Vector2(2.83594, 2.90234)
+position = Vector2(-313, -3191)
+scale = Vector2(2.60742, 2.31152)
 texture = ExtResource("2_jcnw1")
 centered = false
 
@@ -358,12 +360,12 @@ position = Vector2(2898, -2028)
 position = Vector2(429, -414)
 
 [node name="Mob1" parent="Mobs" instance=ExtResource("7_ld5pt")]
-position = Vector2(3368, 557)
+position = Vector2(3368, 570)
 speed = 0.0
 should_patrol = false
 
 [node name="Mob2" parent="Mobs" instance=ExtResource("7_ld5pt")]
-position = Vector2(3683, 554)
+position = Vector2(3683, 570)
 speed = 0.0
 should_patrol = false
 
@@ -1193,7 +1195,7 @@ position = Vector2(3288, -3360)
 position = Vector2(3843, 534)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
-position = Vector2(-3727, -5618)
+position = Vector2(-3754.82, -5567.86)
 scale = Vector2(1.85302, 7.8712)
 shape = SubResource("RectangleShape2D_wavc8")
 
@@ -1202,6 +1204,7 @@ shape = SubResource("RectangleShape2D_wavc8")
 [node name="Labels" type="Label" parent="."]
 offset_right = 258.0
 offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("18_ckkec")
 
 [node name="Welcome" type="Label" parent="Labels"]
 layout_mode = 0
@@ -1209,6 +1212,11 @@ offset_left = 808.0
 offset_top = 360.0
 offset_right = 1260.0
 offset_bottom = 513.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Welcome to Charcuterie Crusade!
 
 Use A and D or left/right arrow keys to move left and right.
@@ -1222,6 +1230,11 @@ offset_left = 1735.0
 offset_top = 298.0
 offset_right = 1847.0
 offset_bottom = 349.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Platform!"
 
 [node name="Knife" type="Label" parent="Labels"]
@@ -1230,10 +1243,15 @@ offset_left = 2595.0
 offset_top = 137.0
 offset_right = 2805.0
 offset_bottom = 316.0
-text = "Collect the knife and press X to practice your attack on the bell peppers!
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
+text = "Collect the knife and press X to practice your attack on the tomatoes!
 
 
-(Don't worry, these ones won't fight back)"
+Don't worry, these ones won't fight back..."
 autowrap_mode = 2
 
 [node name="Spikes" type="Label" parent="Labels"]
@@ -1242,6 +1260,11 @@ offset_left = 2664.0
 offset_top = -520.0
 offset_right = 2874.0
 offset_bottom = -341.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Don't get stabbed!"
 autowrap_mode = 2
 
@@ -1251,6 +1274,11 @@ offset_left = 288.0
 offset_top = -984.0
 offset_right = 498.0
 offset_bottom = -805.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Collect the pepper to unlock double-jump!"
 autowrap_mode = 2
 
@@ -1260,6 +1288,11 @@ offset_left = 3348.0
 offset_top = -3428.0
 offset_right = 3558.0
 offset_bottom = -3249.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Collect the salt to unlock a dash!
 Use SHIFT to dash"
 autowrap_mode = 2
@@ -1270,6 +1303,11 @@ offset_left = 564.0
 offset_top = -2512.0
 offset_right = 774.0
 offset_bottom = -2333.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "The cheese will damage a large area with its stench, best to avoid it"
 autowrap_mode = 2
 
@@ -1279,6 +1317,11 @@ offset_left = 3228.0
 offset_top = -4044.0
 offset_right = 3438.0
 offset_bottom = -3865.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
 text = "Pickles have an accurate but predictable ranged attack"
 autowrap_mode = 2
 
@@ -1288,15 +1331,24 @@ offset_left = 2000.0
 offset_top = -712.0
 offset_right = 2210.0
 offset_bottom = -533.0
-text = "The bread has a slow, range attack; quick movement can avoid it"
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
+text = "The bread has a slow, range attack; quick movement can avoid it!"
 autowrap_mode = 2
 
 [node name="Level One" type="Label" parent="Labels"]
 layout_mode = 0
 offset_left = 3528.0
 offset_top = -672.0
-offset_right = 3738.0
+offset_right = 3762.0
 offset_bottom = -493.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
 theme_override_font_sizes/font_size = 63
 text = "Level 1"
 autowrap_mode = 2
@@ -1305,8 +1357,12 @@ autowrap_mode = 2
 layout_mode = 0
 offset_left = 56.0
 offset_top = -2168.0
-offset_right = 266.0
+offset_right = 304.0
 offset_bottom = -1989.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
 theme_override_font_sizes/font_size = 63
 text = "Level 2"
 autowrap_mode = 2
@@ -1315,8 +1371,12 @@ autowrap_mode = 2
 layout_mode = 0
 offset_left = 3576.0
 offset_top = -3848.0
-offset_right = 3786.0
+offset_right = 3814.0
 offset_bottom = -3669.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
 theme_override_font_sizes/font_size = 63
 text = "Level 3
 "

@@ -1,26 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhv3sgvueo7d1"]
+[gd_scene load_steps=4 format=3 uid="uid://dhv3sgvueo7d1"]
 
 [ext_resource type="Script" path="res://scenes/level_end.gd" id="1_01bga"]
+[ext_resource type="Texture2D" uid="uid://7rb0umc326nm" path="res://assets/art/backgrounds/gameover.png" id="2_uxouh"]
+[ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="3_gqmrb"]
 
 [node name="Level End" type="CanvasLayer"]
 script = ExtResource("1_01bga")
 
-[node name="Level End Screen" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -250.0
-offset_right = 160.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.714212, 0.714212, 0.714212, 1)
+[node name="Level End Screen" type="Sprite2D" parent="."]
+position = Vector2(605, 255)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_uxouh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Level End Screen"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -33,44 +25,52 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Restart" type="Button" parent="Level End Screen/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
+[node name="Restart" type="Button" parent="."]
+offset_left = 516.0
+offset_top = 380.0
+offset_right = 598.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("3_gqmrb")
+theme_override_font_sizes/font_size = 14
 text = "Restart Level"
+autowrap_mode = 2
 
-[node name="Continue" type="Button" parent="Level End Screen/VBoxContainer"]
-layout_mode = 2
+[node name="Continue" type="Button" parent="."]
+offset_left = 612.0
+offset_top = 381.0
+offset_right = 694.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("3_gqmrb")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
-[node name="Score Label" type="Label" parent="Level End Screen"]
-layout_mode = 1
+[node name="Score Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -17.5
-offset_right = 40.0
-offset_bottom = 17.5
+offset_top = 106.0
+offset_right = 80.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_gqmrb")
+theme_override_font_sizes/font_size = 15
 text = "Score: "
 
-[node name="Game Over" type="Label" parent="Level End Screen"]
-layout_mode = 1
+[node name="Game Over" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -85.5
-offset_top = 100.0
-offset_right = 85.5
-offset_bottom = 142.0
+offset_left = -469.375
+offset_top = 25.0
+offset_right = -298.375
+offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Game Over!"
 
-[connection signal="pressed" from="Level End Screen/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Level End Screen/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
