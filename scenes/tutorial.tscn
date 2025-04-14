@@ -1219,7 +1219,7 @@ theme_override_fonts/font = ExtResource("18_ckkec")
 theme_override_font_sizes/font_size = 20
 text = "Welcome to Charcuterie Crusade!
 
-Use A and D or left/right arrow keys to move left and right.
+Use left/right arrow keys to move left and right.
 Use Space to Jump.
 
 Collect butter for score and health!"
