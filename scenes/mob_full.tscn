@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbgfh4dqtoeve"]
+[gd_scene load_steps=8 format=3 uid="uid://cbgfh4dqtoeve"]
 
 [ext_resource type="Script" path="res://scenes/mob.gd" id="1_646gh"]
 [ext_resource type="Texture2D" uid="uid://ynoobbwis2as" path="res://assets/art/Bread Monster.png" id="2_sjkov"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_00p5l"]
+[ext_resource type="AudioStream" uid="uid://dgtchbfp1ec4i" path="res://assets/audio/enemy_damage.wav" id="4_w4wwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
 size = Vector2(100, 120)
@@ -48,6 +49,9 @@ shape = SubResource("RectangleShape2D_mljh6")
 position = Vector2(-37, -83)
 scale = Vector2(0.75, 0.75)
 totalHealth = 15
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w4wwc")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8yrcbyatcx1s"]
+[gd_scene load_steps=4 format=3 uid="uid://drxmgk82ohiep"]
 
 [ext_resource type="Script" path="res://scenes/salt.gd" id="1_1inip"]
 [ext_resource type="Texture2D" uid="uid://bly3pggavimrp" path="res://assets/art/salt-shaker-jh-clipart-xl.png" id="1_hvpnc"]

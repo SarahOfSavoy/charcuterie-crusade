@@ -25,6 +25,7 @@ func _physics_process(delta):
 			position.y += speed * delta
 			# Stop moving when the fist reaches y = 700
 			if position.y >= 720:
+				$"Punch SFX".play()
 				current_state = State.WAITING
 				wait_timer = wait_time  # Start the wait timer
 
@@ -47,6 +48,8 @@ func take_damage(damage):
 	emit_signal("boss_damaged", damage)  # Notify spawner
 
 	flash_red()  # Call the glow effect
+	
+	$Damage.play()
 
 	if current_health <= 0:
 		die()

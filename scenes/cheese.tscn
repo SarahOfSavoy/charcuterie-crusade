@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxuau02by5lk2"]
+[gd_scene load_steps=8 format=3 uid="uid://bxuau02by5lk2"]
 
 [ext_resource type="Script" path="res://scenes/mob.gd" id="1_77igu"]
 [ext_resource type="Texture2D" uid="uid://bwc0gif3o16b3" path="res://assets/art/stilton_cheese.png" id="2_swlad"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_kilnn"]
+[ext_resource type="AudioStream" uid="uid://dgtchbfp1ec4i" path="res://assets/audio/enemy_damage.wav" id="4_76asr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ohb8"]
 size = Vector2(128, 128)
@@ -39,3 +40,6 @@ shape = SubResource("RectangleShape2D_coftm")
 [node name="HealthBar" parent="." instance=ExtResource("3_kilnn")]
 position = Vector2(-50, -223)
 totalHealth = 15
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_76asr")

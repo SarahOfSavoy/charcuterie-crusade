@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8javuvn8ih1g"]
+[gd_scene load_steps=5 format=3 uid="uid://b8javuvn8ih1g"]
 
 [ext_resource type="Script" path="res://butcher_knife.gd" id="1_5n8kg"]
 [ext_resource type="Texture2D" uid="uid://bdkuuxygeuy6q" path="res://assets/art/butcherknife.png" id="1_dkuni"]
+[ext_resource type="AudioStream" uid="uid://d0q0h1pv48yy1" path="res://assets/audio/impactPlate_light_002.ogg" id="3_x8eq8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fawo7"]
 radius = 5.63533
@@ -19,5 +20,8 @@ texture = ExtResource("1_dkuni")
 position = Vector2(5, -5)
 rotation = 5.58505
 shape = SubResource("CapsuleShape2D_fawo7")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x8eq8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

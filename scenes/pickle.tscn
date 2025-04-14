@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpys3uvsw2ca"]
+[gd_scene load_steps=8 format=3 uid="uid://bpys3uvsw2ca"]
 
 [ext_resource type="Script" path="res://scenes/pickle.gd" id="1_qboog"]
 [ext_resource type="PackedScene" uid="uid://brpyuo5yspdp6" path="res://scenes/pickle_projectile.tscn" id="2_q2vnb"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="2_tmrgh"]
 [ext_resource type="Texture2D" uid="uid://b2x2wlx6opiio" path="res://assets/art/pickle.png" id="3_q63vb"]
+[ext_resource type="AudioStream" uid="uid://dgtchbfp1ec4i" path="res://assets/audio/enemy_damage.wav" id="5_7s21b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha7xo"]
 size = Vector2(70, 147)
@@ -34,6 +35,9 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("RectangleShape2D_l06qq")
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7s21b")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_area_body_exited"]

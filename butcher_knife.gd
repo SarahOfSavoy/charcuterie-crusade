@@ -14,7 +14,7 @@ var is_stuck: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var hit_sound: AudioStreamPlayer = $HitSound # Add this node
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound # Add this node
 
 func _ready():
 	initial_position = position
@@ -44,6 +44,8 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.name == "Player" :
 		body.take_damage(10)
+		$HitSound.play()
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
 func deal_damage(player):

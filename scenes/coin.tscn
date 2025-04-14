@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxe37i8c5646h"]
+[gd_scene load_steps=5 format=3 uid="uid://dxe37i8c5646h"]
 
 [ext_resource type="Script" path="res://scenes/coin.gd" id="1_avk8k"]
-[ext_resource type="Texture2D" uid="uid://c2erou45eyna2" path="res://assets/art/foods.png" id="2_5ufu2"]
+[ext_resource type="AudioStream" uid="uid://528ay5liqbsx" path="res://assets/audio/coin.wav" id="3_af53f"]
+[ext_resource type="Texture2D" uid="uid://d5fmq1xv03l3" path="res://assets/art/butter.png" id="3_u6m1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vuoo"]
 size = Vector2(81.9042, 91.3657)
@@ -11,17 +12,18 @@ position = Vector2(143, 88)
 script = ExtResource("1_avk8k")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-scale = Vector2(2.25, 2.25)
-texture = ExtResource("2_5ufu2")
-region_enabled = true
-region_rect = Rect2(35, 62, 16, 16)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 rotation = -0.445059
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_7vuoo")
+
+[node name="Coin SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_af53f")
+volume_db = -11.843
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_u6m1h")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

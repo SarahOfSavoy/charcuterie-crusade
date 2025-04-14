@@ -120,7 +120,7 @@ func dash():
 func attack():
 	# Handle turning attack input into movement
 	if Input.is_action_just_pressed("attack") and is_attacking == false and attack_cooldown == false:
-		$SFX/Attacking.play()
+		#$SFX/Attacking.play()
 		is_attacking = true
 		attack_cooldown = true
 		$"AttackDuration".start()
@@ -164,9 +164,12 @@ func _on_knife_collected() -> void:
 
 func _on_pepper_collected() -> void:
 	max_jumps += 1
+	$SFX/Powerup.play()
 	
 # Function called elsewhere to deal damage to the player
 func take_damage(damage, knockback_direction = 0):
+	$SFX/Damage.play()
+	
 	# If not healing and is dead, don't take damage
 	if damage > 0 and health <= 0:
 		return
@@ -200,3 +203,8 @@ func heal(health_amt):
 
 func _on_salt_body_entered(body: Node2D) -> void:
 	can_dash = true
+	$SFX/Powerup.play()
+
+
+func collect_coin():
+	$SFX/Coin.play()

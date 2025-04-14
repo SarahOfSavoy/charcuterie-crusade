@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdsfohr2b5k1v"]
+[gd_scene load_steps=8 format=3 uid="uid://bdsfohr2b5k1v"]
 
 [ext_resource type="Script" path="res://scenes/mob.gd" id="1_n0x2y"]
 [ext_resource type="Texture2D" uid="uid://tpxov2n8ih2x" path="res://assets/art/tomato.webp" id="2_5qpme"]
 [ext_resource type="PackedScene" uid="uid://ikg8mhk7ewb2" path="res://scenes/health_bar.tscn" id="3_yyuv4"]
+[ext_resource type="AudioStream" uid="uid://dgtchbfp1ec4i" path="res://assets/audio/enemy_damage.wav" id="4_p52w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uqgo"]
 size = Vector2(104, 104)
@@ -43,6 +44,9 @@ shape = SubResource("RectangleShape2D_mljh6")
 position = Vector2(-41, -74)
 scale = Vector2(0.75, 0.75)
 totalHealth = 15
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p52w5")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

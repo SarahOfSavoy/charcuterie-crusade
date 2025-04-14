@@ -85,6 +85,9 @@ func start_attack():
 	attack()
 
 func attack():
+	if health <= 0:
+		return
+	
 	var projectile = projectile_scene.instantiate()
 	
 	if not player:
@@ -101,6 +104,8 @@ func attack():
 	
 	var initial_velocity = sqrt((g * x**2) / (2 * (cos(initial_angle)**2) * (-x * tan(initial_angle) + y)))
 	
+	if is_nan(initial_velocity):
+		return
 	
 	projectile.vel_x = initial_velocity * cos(initial_angle)
 	projectile.vel_y = initial_velocity * sin(initial_angle)
@@ -109,10 +114,15 @@ func attack():
 func take_damage(damage):
 	health -= damage
 	$HealthBar.take_damage(5)
+	$Damage.play()
 
 func die():
 	# Add 200 points to the score
 	Globals.score += 200
+	hide()
+	set_collision_layer_value(1, false)
+	set_collision_layer_value(10, true)
+	await get_tree().create_timer(0.43).timeout
 	queue_free()  # Remove the mob from the scene
 
 func _on_detection_area_body_entered(body):
