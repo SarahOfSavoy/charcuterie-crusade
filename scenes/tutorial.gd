@@ -1,7 +1,7 @@
 extends Node
 
+var is_player_in_end_area = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$LevelMusic.play()
 	$Player.position = Globals.starting_pos
@@ -9,7 +9,14 @@ func _ready() -> void:
 	$Player.can_attack = Globals.can_attack
 	$Player.can_dash = Globals.can_dash
 
+func _on_level_end_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		is_player_in_end_area = true
 
-# When the player finishes the tutorial
-func _on_level_end_area_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://scenes/boss.tscn")
+func _on_level_end_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_player_in_end_area = false
+
+func _input(event: InputEvent) -> void:
+	if is_player_in_end_area and event.is_action_pressed("attack"):
+		get_tree().change_scene_to_file("res://scenes/boss.tscn")

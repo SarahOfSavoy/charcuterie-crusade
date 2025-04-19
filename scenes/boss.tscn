@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_lgie8"]
 [ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="4_ibmw3"]
 [ext_resource type="Script" path="res://scenes/knife_spawner.gd" id="4_ru05a"]
-[ext_resource type="PackedScene" uid="uid://b8javuvn8ih1g" path="res://butcher_knife.tscn" id="5_j0oeu"]
+[ext_resource type="PackedScene" uid="uid://b8javuvn8ih1g" path="res://scenes/butcher_knife.tscn" id="5_j0oeu"]
 [ext_resource type="AudioStream" uid="uid://cvpfabd7uon64" path="res://assets/audio/bossmusic.wav" id="7_h5fcu"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="7_npra4"]
 [ext_resource type="Texture2D" uid="uid://djo7ocq3phdfb" path="res://assets/art/backgrounds/fridgebackground1.png" id="12_sfp6k"]

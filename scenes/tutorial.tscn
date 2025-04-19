@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://couu80tn717wu"]
+[gd_scene load_steps=31 format=4 uid="uid://c64u20moek0j0"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_qaf8i"]
 [ext_resource type="Texture2D" uid="uid://dawh4sp5a2ben" path="res://assets/art/backgrounds/fridgebackground3.png" id="2_32787"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4ydmycoux7o" path="res://scenes/player.tscn" id="3_jdcym"]
 [ext_resource type="PackedScene" uid="uid://cbgfh4dqtoeve" path="res://scenes/mob_full.tscn" id="4_76re5"]
 [ext_resource type="PackedScene" uid="uid://dppvfi2lx7a2l" path="res://scenes/platform.tscn" id="4_eawga"]
+[ext_resource type="Texture2D" uid="uid://byqw7co3wirq2" path="res://assets/art/backgrounds/freezerbackground.png" id="4_uuwhf"]
 [ext_resource type="AudioStream" uid="uid://bbckf75nldgjs" path="res://assets/audio/tut.wav" id="5_6jdfx"]
 [ext_resource type="PackedScene" uid="uid://x6dgogrd7wk8" path="res://scenes/knife.tscn" id="6_p1vca"]
 [ext_resource type="PackedScene" uid="uid://bfioui5vphlyh" path="res://scenes/spikes.tscn" id="7_ackjq"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://drxmgk82ohiep" path="res://scenes/salt.tscn" id="15_jpoa2"]
 [ext_resource type="PackedScene" uid="uid://coxy8fgvq0cb1" path="res://scenes/moving_platform.tscn" id="15_umy3p"]
 [ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="18_ckkec"]
+[ext_resource type="Texture2D" uid="uid://c8mwnoodxvu68" path="res://assets/art/door.webp" id="21_dtujp"]
 
 [sub_resource type="Curve2D" id="Curve2D_uuesv"]
 _data = {
@@ -240,16 +242,26 @@ scroll_base_scale = Vector2(3, 3)
 [node name="Background Layer" type="ParallaxLayer" parent="Scrolling Background"]
 motion_scale = Vector2(0.2, 0.2)
 
-[node name="Sprite2D" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+[node name="TutorialandL1Background" type="Sprite2D" parent="Scrolling Background/Background Layer"]
 position = Vector2(1689.31, -463.188)
 scale = Vector2(2.60636, 2.19299)
 texture = ExtResource("2_32787")
 
-[node name="Background Sprite" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+[node name="L2andL3Background" type="Sprite2D" parent="Scrolling Background/Background Layer"]
 position = Vector2(-313, -3191)
 scale = Vector2(2.60742, 2.31152)
 texture = ExtResource("2_jcnw1")
 centered = false
+
+[node name="FreezerBackground" type="Sprite2D" parent="Scrolling Background/Background Layer"]
+modulate = Color(1, 1, 1, 0.564706)
+position = Vector2(1689.5, -4362.5)
+scale = Vector2(2.60352, 2.29785)
+texture = ExtResource("4_uuwhf")
+
+[node name="Boss Door" type="Sprite2D" parent="."]
+position = Vector2(68, -5296)
+texture = ExtResource("21_dtujp")
 
 [node name="Moving Platforms" type="Node2D" parent="."]
 
@@ -1195,7 +1207,7 @@ position = Vector2(3288, -3360)
 position = Vector2(3843, 534)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
-position = Vector2(-3754.82, -5567.86)
+position = Vector2(-3775, -5817)
 scale = Vector2(1.85302, 7.8712)
 shape = SubResource("RectangleShape2D_wavc8")
 
@@ -1223,6 +1235,20 @@ Use left/right arrow keys to move left and right.
 Use Space to Jump.
 
 Collect butter for score and health!"
+
+[node name="Boss" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = -5407.0
+offset_right = 352.0
+offset_bottom = -5254.0
+theme_override_colors/font_color = Color(0.988235, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_ckkec")
+theme_override_font_sizes/font_size = 20
+text = "Press X on the door to fight the butcher king..."
+autowrap_mode = 2
 
 [node name="Platform" type="Label" parent="Labels"]
 layout_mode = 0
@@ -1418,3 +1444,4 @@ shape = SubResource("WorldBoundaryShape2D_qb4dl")
 [connection signal="pepper_collected" from="Pepper" to="Player" method="_on_pepper_collected"]
 [connection signal="body_entered" from="Salt" to="Player" method="_on_salt_body_entered"]
 [connection signal="body_entered" from="LevelEndArea" to="." method="_on_level_end_area_body_entered"]
+[connection signal="body_exited" from="LevelEndArea" to="." method="_on_level_end_area_body_exited"]
