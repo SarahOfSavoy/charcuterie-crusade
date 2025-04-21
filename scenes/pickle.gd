@@ -16,6 +16,7 @@ var is_paused: bool = false  # Tracks whether the mob is paused at a boundary
 var attack_range: float = 0.0  # Will be set dynamically based on DetectionArea
 var player: Node2D = null  # Reference to the player
 var original_direction: int = 1  # Store the original patrol direction
+var dead = false
 
 func _ready():
 	start_position = position
@@ -26,8 +27,9 @@ func _ready():
 		attack_range = detection_shape.size.x  # Use half the width as the range
 
 func _physics_process(_delta):
-	if health <= 0:
+	if health <= 0 and not dead:
 		die()  # Handle mob death
+		dead = true
 		return
 
 	if player_in_range:
@@ -117,11 +119,15 @@ func take_damage(damage):
 	$Damage.play()
 
 func die():
-	# Add 200 points to the score
-	Globals.score += 200
 	hide()
 	set_collision_layer_value(1, false)
 	set_collision_layer_value(10, true)
+	
+	# Add 200 points to the score
+	for i in range(200):
+		Globals.score += 1
+		await get_tree().create_timer(0.001).timeout
+	
 	await get_tree().create_timer(0.43).timeout
 	queue_free()  # Remove the mob from the scene
 

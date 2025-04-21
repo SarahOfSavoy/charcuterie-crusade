@@ -15,6 +15,7 @@ size = Vector2(1198, 711)
 [node name="Pickle" type="CharacterBody2D" groups=["mobs"]]
 collision_mask = 8
 script = ExtResource("1_qboog")
+speed = 0.0
 projectile_scene = ExtResource("2_q2vnb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

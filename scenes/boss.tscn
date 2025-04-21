@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b1sneg8c211tf"]
+[gd_scene load_steps=18 format=4 uid="uid://b1sneg8c211tf"]
 
 [ext_resource type="Script" path="res://scenes/boss.gd" id="1_ch3jt"]
 [ext_resource type="Texture2D" uid="uid://cbq5u0kbatrqb" path="res://assets/art/backgrounds/kitchen.jpg" id="1_pottd"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cvpfabd7uon64" path="res://assets/audio/bossmusic.wav" id="7_h5fcu"]
 [ext_resource type="PackedScene" uid="uid://t3e5afoao01o" path="res://scenes/hud.tscn" id="7_npra4"]
 [ext_resource type="Texture2D" uid="uid://djo7ocq3phdfb" path="res://assets/art/backgrounds/fridgebackground1.png" id="12_sfp6k"]
+[ext_resource type="Texture2D" uid="uid://shv82pv3lrly" path="res://assets/art/boss_health.png" id="14_t6784"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ynggs"]
 
@@ -260,6 +261,39 @@ position = Vector2(81, -69)
 stream = ExtResource("7_h5fcu")
 volume_db = -5.477
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Boss"]
+
+[node name="TextureRect" type="TextureRect" parent="Boss/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.6
+offset_top = 25.0
+offset_right = 818.4
+offset_bottom = 276.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.25)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_t6784")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Boss/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 50.0
+offset_right = 58.0
+offset_bottom = 73.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.972549, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibmw3")
+theme_override_font_sizes/font_size = 19
+text = "100 / 100"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_lgie8")]
 position = Vector2(100, 600)

@@ -11,9 +11,7 @@ func is_boss_level() -> bool:
 # When the restart button is pressed
 func _on_restart_pressed() -> void:
 	Globals.is_paused = false
-	print(is_boss_level())
 	if is_boss_level():
-		print("Restarting boss level from beginning.")
 		# Don't use checkpoint — just reload the scene
 		get_tree().reload_current_scene()
 	else:

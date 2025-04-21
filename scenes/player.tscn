@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ce4ydmycoux7o"]
+[gd_scene load_steps=45 format=3 uid="uid://ce4ydmycoux7o"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6twv0"]
 [ext_resource type="Texture2D" uid="uid://bi1afbccg6kbo" path="res://assets/art/player sprites/idle_polished/1.png" id="3_8jobv"]
@@ -9,19 +9,34 @@
 [ext_resource type="Texture2D" uid="uid://cythxat46pv3s" path="res://assets/art/player sprites/idle_polished/4.png" id="6_8lsl4"]
 [ext_resource type="Texture2D" uid="uid://b8skui5mqqf74" path="res://assets/art/player sprites/idle_polished/5.png" id="7_jlw88"]
 [ext_resource type="Texture2D" uid="uid://pdyr3jbcvu8w" path="res://assets/art/player sprites/idle_polished/6.png" id="8_0nxc5"]
+[ext_resource type="Texture2D" uid="uid://hoqbfo0xarg" path="res://assets/art/player sprites/jump_polished/1.png" id="8_0tt31"]
 [ext_resource type="Texture2D" uid="uid://xa2ujuiiu33f" path="res://assets/art/player sprites/walk_polished/1.png" id="8_43gma"]
 [ext_resource type="Texture2D" uid="uid://bdo3ay8oq106d" path="res://assets/art/player sprites/walk_polished/2.png" id="9_v5qvj"]
+[ext_resource type="Texture2D" uid="uid://dp8xbs5e7n131" path="res://assets/art/player sprites/jump_polished/2.png" id="9_vu12t"]
+[ext_resource type="Texture2D" uid="uid://cqptxabggcyrb" path="res://assets/art/player sprites/jump_polished/3.png" id="10_ippo4"]
 [ext_resource type="Texture2D" uid="uid://80qquvs47ywg" path="res://assets/art/player sprites/walk_polished/3.png" id="10_l7oda"]
 [ext_resource type="Texture2D" uid="uid://c0ugtrk3i3c8r" path="res://assets/art/player sprites/walk_polished/4.png" id="11_rpmr8"]
+[ext_resource type="Texture2D" uid="uid://cvfoyn83wpxea" path="res://assets/art/player sprites/jump_polished/4.png" id="11_y28q1"]
 [ext_resource type="Texture2D" uid="uid://cy03s73qwlc01" path="res://assets/art/player sprites/walk_polished/5.png" id="12_2ts44"]
+[ext_resource type="Texture2D" uid="uid://dg3xq155ebbnq" path="res://assets/art/player sprites/jump_polished/5.png" id="12_ts5ry"]
+[ext_resource type="Texture2D" uid="uid://dyv4kjqkhr0ab" path="res://assets/art/player sprites/jump_polished/6.png" id="13_cnn7b"]
 [ext_resource type="Texture2D" uid="uid://bd2bfnmkh7mmc" path="res://assets/art/player sprites/walk_polished/6.png" id="13_f5q5k"]
+[ext_resource type="Texture2D" uid="uid://bf06qcgsggygq" path="res://assets/art/player sprites/jump_polished/7.png" id="14_g5nur"]
 [ext_resource type="Texture2D" uid="uid://cygaaq647ir0w" path="res://assets/art/player sprites/walk_polished/7.png" id="14_uubml"]
+[ext_resource type="Texture2D" uid="uid://v4kdn80onsyk" path="res://assets/art/player sprites/jump_polished/8.png" id="15_4lilu"]
 [ext_resource type="Texture2D" uid="uid://bjbvn4cxfvkw8" path="res://assets/art/player sprites/walk_polished/8.png" id="15_ujng7"]
+[ext_resource type="Texture2D" uid="uid://dgytbx4l5wem7" path="res://assets/art/player sprites/jump_polished/9.png" id="16_qfm7k"]
 [ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="17_7oj02"]
+[ext_resource type="Texture2D" uid="uid://dfujmfpiwa718" path="res://assets/art/player sprites/jump_polished/10.png" id="17_emmic"]
+[ext_resource type="Texture2D" uid="uid://c58bxq8i8grkc" path="res://assets/art/player sprites/jump_polished/11.png" id="18_77g6p"]
 [ext_resource type="AudioStream" uid="uid://32c73p6rbxn8" path="res://assets/audio/footstep_wood_000.ogg" id="18_krxnr"]
+[ext_resource type="Texture2D" uid="uid://c4bke0lalrkyo" path="res://assets/art/player sprites/fall_polished/1.png" id="19_o2yqh"]
 [ext_resource type="AudioStream" uid="uid://bgmuajwwivkc" path="res://assets/audio/impactGeneric_light_001.ogg" id="19_xcb4b"]
+[ext_resource type="Texture2D" uid="uid://bsuj8yyow4nkg" path="res://assets/art/player sprites/fall_polished/2.png" id="20_1cvfd"]
 [ext_resource type="AudioStream" uid="uid://dgac7e41dijaq" path="res://assets/audio/impactSoft_heavy_001.ogg" id="21_hl6jg"]
 [ext_resource type="AudioStream" uid="uid://d0upki34qcams" path="res://assets/audio/impactPlank_medium_000.ogg" id="21_jdjnl"]
+[ext_resource type="Texture2D" uid="uid://duwrmy1328cgm" path="res://assets/art/player sprites/fall_polished/3.png" id="21_xi10f"]
+[ext_resource type="Texture2D" uid="uid://d3j6542cwie4l" path="res://assets/art/player sprites/fall_polished/4.png" id="22_55214"]
 [ext_resource type="PackedScene" uid="uid://cnmwi1mfteoc" path="res://scenes/pause_menu.tscn" id="23_kska7"]
 [ext_resource type="AudioStream" uid="uid://dgdrj7nhjkjjl" path="res://assets/audio/power_up.wav" id="24_6gw63"]
 [ext_resource type="AudioStream" uid="uid://528ay5liqbsx" path="res://assets/audio/coin.wav" id="25_1f2ni"]
@@ -70,11 +85,53 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8jobv")
+"texture": ExtResource("8_0tt31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vu12t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ippo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y28q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ts5ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cnn7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g5nur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4lilu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qfm7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_emmic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_77g6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_o2yqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1cvfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xi10f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_55214")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -120,7 +177,9 @@ script = ExtResource("1_6twv0")
 position = Vector2(4.29153e-06, -9.53674e-07)
 scale = Vector2(0.192, 0.176)
 sprite_frames = SubResource("SpriteFrames_clcnc")
-animation = &"walk"
+animation = &"jump"
+frame = 10
+frame_progress = 1.0
 script = ExtResource("17_7oj02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -190,7 +249,7 @@ volume_db = -10.0
 
 [node name="Coin" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("25_1f2ni")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Damage" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("26_imyip")

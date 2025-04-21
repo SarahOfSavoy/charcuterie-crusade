@@ -28,6 +28,8 @@ var hit_velocity = Vector2(300, -300)
 # Store the x direction the player was last looking
 var last_direction = 1
 
+var started_jump = false
+
 signal attack_started
 
 func _physics_process(delta: float) -> void:
@@ -134,16 +136,20 @@ func flip(direction):
 		
 		
 func animations():
+	if not is_airborne:
+		started_jump = false
+	
 	# Handle player animations
 	if is_dashing:
 		$"AnimatedSprite2D".play("dash")
 	elif is_attacking:
 		$"AnimatedSprite2D".play("attack")
-	elif is_airborne:
+	elif is_airborne and not started_jump:
 		$"AnimatedSprite2D".play("jump")
-	elif is_walking:
+		started_jump = true
+	elif is_walking and not is_airborne:
 		$"AnimatedSprite2D".play("walk")
-	else:
+	elif not is_airborne:
 		$"AnimatedSprite2D".play("idle")
 	
 func _on_dash_duration_timeout():

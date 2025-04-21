@@ -18,7 +18,6 @@ func _ready():
 	health = max_health
 	# Hide the victory label at start
 	if victory_label:
-		print('victorylabel')
 		victory_label.visible = false
 
 	# Start Phase 1
@@ -29,7 +28,7 @@ func on_boss_damaged(damage):
 	health = max(0, health)
 	current_hits += 1
 	
-	print("Boss hit! Total hits: ", current_hits, " | Health: ", health)
+	$CanvasLayer/Label.text = str(health) + " / 100"
 	
 	if current_hits >= hits_to_phase2 and not is_phase2:
 		start_phase2()
@@ -39,7 +38,6 @@ func on_boss_damaged(damage):
 
 func start_phase2():
 	is_phase2 = true
-	print("=== PHASE 2 ACTIVATED ===")
 	
 	fist_spawner.current_spawn_interval *= 0.6
 	fist_spawner.current_fist_speed *= 1.5
@@ -50,10 +48,8 @@ func start_phase2():
 		push_error("Knife Spawner not found!")
 
 func die():
-	print("Butcher King defeated!")
 
 	if victory_label:
-		print("victorylabel")
 		victory_label.visible = true
 
 	queue_free()
