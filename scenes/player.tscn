@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dgytbx4l5wem7" path="res://assets/art/player sprites/jump_polished/9.png" id="16_qfm7k"]
 [ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="17_7oj02"]
 [ext_resource type="Texture2D" uid="uid://dfujmfpiwa718" path="res://assets/art/player sprites/jump_polished/10.png" id="17_emmic"]
-[ext_resource type="Texture2D" uid="uid://c58bxq8i8grkc" path="res://assets/art/player sprites/jump_polished/11.png" id="18_77g6p"]
+[ext_resource type="Texture2D" uid="uid://dhu0qe7npdwea" path="res://assets/art/player sprites/jump_polished/11.png" id="18_77g6p"]
 [ext_resource type="AudioStream" uid="uid://32c73p6rbxn8" path="res://assets/audio/footstep_wood_000.ogg" id="18_krxnr"]
 [ext_resource type="Texture2D" uid="uid://c4bke0lalrkyo" path="res://assets/art/player sprites/fall_polished/1.png" id="19_o2yqh"]
 [ext_resource type="AudioStream" uid="uid://bgmuajwwivkc" path="res://assets/audio/impactGeneric_light_001.ogg" id="19_xcb4b"]

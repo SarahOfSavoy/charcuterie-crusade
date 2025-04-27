@@ -1,30 +1,25 @@
 extends Control
 
-
 func _ready() -> void:
 	$Music.play()
 	var popup = $SelectButton.get_popup()
 	popup.id_pressed.connect(level_menu)
 
-
 # When the user clicks the start button
 func _on_start_button_pressed() -> void:
-	# Change the scene to the main scene
-	# THIS WILL CHANGE WHEN WE HAVE LEVELS
+	# Change the scene to the cutscene first, then tutorial scene after the cutscene ends
 	$Music.stop()
-	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro_cutscene.tscn")
 	Globals.can_attack = false
 	Globals.can_dash = false
 	Globals.max_jumps = 1
 	Globals.checkpoint = null
 	Globals.starting_pos = Vector2(893, 648)
 
-
 # When the user clicks the quit button
 func _on_quit_button_pressed() -> void:
 	# Quiting out of the tree exits the game
 	get_tree().quit()
-
 
 func level_menu(id):
 	$Music.stop()

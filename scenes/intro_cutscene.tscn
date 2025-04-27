@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://eas587wyppwy"]
+
+[ext_resource type="Script" path="res://scenes/intro_cutscene.gd" id="1_hmscx"]
+[ext_resource type="AudioStream" uid="uid://br3f018gv8syd" path="res://assets/audio/intro_cutscene.mp3" id="2_art43"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hmscx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CutsceneMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_art43")
