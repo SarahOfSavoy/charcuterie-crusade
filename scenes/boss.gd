@@ -51,5 +51,7 @@ func die():
 
 	if victory_label:
 		victory_label.visible = true
-
+	
+	get_parent().killed_boss()
+	
 	queue_free()

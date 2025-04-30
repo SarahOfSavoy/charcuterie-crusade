@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ivdbh8ywb6o"]
+
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_s1itm"]
+[ext_resource type="FontFile" uid="uid://baipajlumakqd" path="res://assets/art/fonts/chicalo/Chicalo.otf" id="2_aiqhy"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_s1itm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.439216, 0.556863, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.5
+offset_top = 80.0
+offset_right = 251.5
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_aiqhy")
+theme_override_font_sizes/font_size = 50
+text = "Thanks For Playing"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.5
+offset_top = -83.5
+offset_right = 281.5
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aiqhy")
+theme_override_font_sizes/font_size = 30
+text = "Steven Chow - Programmer
+Miranda Cruz - Art
+Sam Gastwirth - Music/Programmer
+Eric Song - Programmer
+Paul Toprac - Producer
+Dweep Trivedi - Associate Producer"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -108.0
+offset_right = 113.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_aiqhy")
+theme_override_font_sizes/font_size = 20
+text = "Return To Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

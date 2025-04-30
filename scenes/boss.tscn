@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://b1sneg8c211tf"]
+[gd_scene load_steps=19 format=4 uid="uid://b1sneg8c211tf"]
 
 [ext_resource type="Script" path="res://scenes/boss.gd" id="1_ch3jt"]
 [ext_resource type="Texture2D" uid="uid://cbq5u0kbatrqb" path="res://assets/art/backgrounds/kitchen.jpg" id="1_pottd"]
+[ext_resource type="Script" path="res://scenes/boss_level.gd" id="1_q04kr"]
 [ext_resource type="Script" path="res://scenes/fist_spawner.gd" id="1_s11ay"]
 [ext_resource type="Texture2D" uid="uid://cwn4ltdv8h0kw" path="res://assets/art/Tileset_8.png" id="2_dbuji"]
 [ext_resource type="Texture2D" uid="uid://byqw7co3wirq2" path="res://assets/art/backgrounds/freezerbackground.png" id="2_q513b"]
@@ -202,6 +203,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_ynggs")
 sources/0 = SubResource("TileSetAtlasSource_pn6dc")
 
 [node name="BossLevel" type="Node2D" groups=["boss"]]
+script = ExtResource("1_q04kr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(572.25, 1018.75)
